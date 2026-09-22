@@ -1,0 +1,265 @@
+<!doctype html><html lang="pt-BR"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Como Funcionam as Apostas — Caddie Stakes Golf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --paper:#faf6ec; --paper2:#f1e8d4; --panel:#ffffff;
+    --ink:#2b2620; --ink-soft:#6b6152;
+    --gold:#96721c; --gold-soft:#c9a84c;
+    --green:#2f6b45; --red:#a84a3f;
+    --rule:rgba(43,38,32,0.14);
+    --serif:'Cormorant Garamond',Georgia,serif;
+    --sans:'Inter',system-ui,-apple-system,sans-serif;
+    --r:16px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#0d1a0f; --paper2:#152417; --panel:#101f13;
+      --ink:#ece3cc; --ink-soft:#93a894;
+      --gold:#d4aa44; --gold-soft:#c9a84c;
+      --green:#5dba7a; --red:#e08a7d;
+      --rule:rgba(232,223,200,0.14);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0d1a0f; --paper2:#152417; --panel:#101f13;
+    --ink:#ece3cc; --ink-soft:#93a894;
+    --gold:#d4aa44; --gold-soft:#c9a84c;
+    --green:#5dba7a; --red:#e08a7d;
+    --rule:rgba(232,223,200,0.14);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:var(--sans); font-size:18px; line-height:1.6;
+    padding-block:0 64px;
+  }
+  .wrap{ max-width:700px; margin:0 auto; padding:0 20px; }
+
+  .masthead{
+    padding:44px 20px 30px; text-align:center;
+    border-bottom:1px solid var(--rule);
+    margin-bottom:8px;
+  }
+  .masthead .flag{ font-size:34px; margin-bottom:6px; }
+  .masthead h1{
+    font-family:var(--serif); font-weight:700; font-size:40px;
+    letter-spacing:0.5px; text-wrap:balance; color:var(--ink);
+  }
+  .masthead h1 em{ font-style:normal; color:var(--gold); }
+  .masthead p{
+    margin-top:10px; color:var(--ink-soft); font-size:16px;
+    max-width:48ch; margin-inline:auto;
+  }
+
+  .index{
+    background:var(--paper2); border:1px solid var(--rule);
+    border-radius:var(--r); padding:22px 24px; margin:32px 0 48px;
+  }
+  .index h2{
+    font-family:var(--sans); font-size:12px; font-weight:700;
+    text-transform:uppercase; letter-spacing:1.5px; color:var(--ink-soft);
+    margin-bottom:14px;
+  }
+  .index ol{ list-style:none; display:grid; gap:9px; counter-reset:idx; }
+  .index li{ counter-increment:idx; }
+  .index a{
+    color:var(--ink); text-decoration:none; font-size:16px; font-weight:500;
+    display:flex; gap:10px; align-items:baseline;
+  }
+  .index a:hover{ color:var(--gold); }
+  .index a::before{
+    content:counter(idx); font-family:var(--serif); font-weight:700;
+    color:var(--gold); font-size:17px; min-width:1.4em;
+  }
+
+  section.step{
+    padding:48px 0; border-bottom:1px solid var(--rule);
+    display:grid; gap:24px;
+  }
+  section.step:last-of-type{ border-bottom:none; }
+  .step-intro{ break-inside:avoid; }
+  .step-eyebrow{
+    font-size:12px; font-weight:700; text-transform:uppercase;
+    letter-spacing:2px; color:var(--gold); margin-bottom:6px;
+  }
+  .step-num{
+    font-family:var(--serif); font-size:44px; font-weight:700;
+    color:var(--gold-soft); line-height:1; margin-bottom:2px;
+  }
+  .step h3{
+    font-family:var(--serif); font-size:29px; font-weight:700;
+    text-wrap:balance; margin-bottom:4px;
+  }
+  .step .lede{ color:var(--ink-soft); font-size:16px; max-width:58ch; }
+  .step ul.actions{ list-style:none; display:grid; gap:12px; max-width:60ch; }
+  .step ul.actions li{
+    display:flex; gap:12px; align-items:flex-start; font-size:16px;
+  }
+  .step ul.actions li::before{
+    content:'→'; color:var(--gold); font-weight:700; flex-shrink:0;
+    font-size:16px; margin-top:3px;
+  }
+  .tip{
+    background:var(--paper2); border:1px solid var(--rule); border-left:3px solid var(--green);
+    border-radius:10px; padding:14px 16px; font-size:15px; color:var(--ink-soft);
+    max-width:62ch;
+  }
+  .tip strong{ color:var(--green); }
+  .example{
+    background:var(--panel); border:1px solid var(--rule); border-radius:var(--r);
+    padding:18px 20px; max-width:62ch;
+  }
+  .example .ex-label{
+    font-size:11px; text-transform:uppercase; letter-spacing:1.5px; font-weight:700;
+    color:var(--gold); margin-bottom:10px;
+  }
+  .example p{ margin:0 0 8px; font-size:15px; color:var(--ink-soft); }
+  .example p:last-child{ margin-bottom:0; }
+  .example strong{ color:var(--ink); }
+
+  .points-table{
+    width:100%; border-collapse:collapse; max-width:62ch; font-size:15px;
+  }
+  .points-table th,.points-table td{
+    padding:10px 14px; text-align:left; border-bottom:1px solid var(--rule);
+  }
+  .points-table th{
+    font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--ink-soft);
+    font-weight:700;
+  }
+  .points-table td.pts{
+    font-family:var(--serif); font-weight:700; font-size:19px; color:var(--gold);
+    text-align:center; width:70px;
+  }
+
+  .hole-strip{
+    display:flex; gap:4px; flex-wrap:wrap; max-width:62ch;
+  }
+  .hole-strip .h{
+    width:34px; height:34px; border-radius:8px; display:flex; align-items:center; justify-content:center;
+    font-size:12px; font-weight:700; border:1px solid var(--rule); color:var(--ink-soft);
+    background:var(--panel);
+  }
+  .hole-strip .h.win{ background:rgba(93,186,122,0.18); color:var(--green); border-color:rgba(93,186,122,0.4); }
+  .hole-strip .h.lose{ background:rgba(168,74,63,0.14); color:var(--red); border-color:rgba(168,74,63,0.35); }
+  .hole-strip .h.tie{ opacity:0.55; }
+  .hole-strip .h.press{ box-shadow:0 0 0 2px var(--gold); }
+
+  footer{ text-align:center; padding:18px 20px 0; color:var(--ink-soft); font-size:13px; }
+
+  @media print{
+    :root{
+      --paper:#ffffff; --paper2:#f4efe2; --panel:#ffffff;
+      --ink:#221f1a; --ink-soft:#544c3d; --gold:#8a6a1c; --gold-soft:#b8942a;
+      --green:#255c38; --rule:#d9d0ba;
+    }
+    body{ font-size:15px; padding-block:0; }
+  }
+</style>
+
+<div class="masthead">
+  <div class="flag">⛳</div>
+  <h1>Como funcionam <em>as apostas</em></h1>
+  <p>Um guia rápido dos três formatos do Caddie Stakes Golf — Nassau, Skins e Stableford — do jeito que o app realmente calcula cada um.</p>
+  <p style="margin-top:16px;"><a href="/" style="color:var(--gold); font-size:14px; text-decoration:underline; text-underline-offset:3px;">← Voltar para caddiestakesgolf.com</a></p>
+</div>
+
+<div class="wrap">
+
+  <div class="index">
+    <h2>Neste guia</h2>
+    <ol>
+      <li><a href="#handicap">Como o handicap entra na conta</a></li>
+      <li><a href="#nassau">Nassau</a></li>
+      <li><a href="#skins">Skins</a></li>
+      <li><a href="#stableford">Stableford</a></li>
+    </ol>
+  </div>
+
+  <section class="step" id="handicap">
+    <div class="step-intro">
+      <div class="step-eyebrow">Antes de tudo</div>
+      <h3>Como o handicap entra na conta</h3>
+      <p class="lede">Os três formatos comparam o placar <strong>líquido</strong> (net), não o bruto — é isso que deixa jogadores de nível diferente competindo de igual pra igual.</p>
+      <ul class="actions">
+        <li><span>Cada buraco do campo tem um <strong>índice de handicap</strong> (de 1 a 18), do mais difícil ao mais fácil</span></li>
+        <li><span>Quem tem handicap mais alto recebe tacadas extras primeiro nos buracos mais difíceis</span></li>
+        <li><span><strong>Net do buraco = tacadas dadas − tacadas recebidas naquele buraco</strong></span></li>
+      </ul>
+    </div>
+    <div class="tip"><strong>Dica:</strong> o app faz essa conta sozinho, buraco a buraco, assim que você lança o placar — você só digita o que realmente aconteceu na tacada.</div>
+  </section>
+
+  <section class="step" id="nassau">
+    <div class="step-intro">
+      <div class="step-eyebrow">Formato 1</div>
+      <div class="step-num">01</div>
+      <h3>Nassau</h3>
+      <p class="lede">Três apostas dentro de uma rodada só: <strong>Front 9</strong> (buracos 1–9), <strong>Back 9</strong> (10–18) e <strong>Total 18</strong> — cada uma com seu próprio valor (padrão do app: R$20 / R$20 / R$40).</p>
+      <ul class="actions">
+        <li><span>Cada buraco decide 1 ponto: quem tem o menor net fica <strong>+1</strong>, o outro <strong>−1</strong>; empatou, <strong>0</strong></span></li>
+        <li><span>Os pontos se somam dentro de cada segmento (Front e Back contam separado)</span></li>
+        <li><span>No fim, quem está no positivo em cada segmento recebe o valor daquele segmento; no negativo, paga</span></li>
+      </ul>
+    </div>
+    <div class="example">
+      <div class="ex-label">O Press, em ação</div>
+      <p>Sempre que o placar de uma aposta chega a <strong>±2 pontos</strong> (jogo individual) ou <strong>±4 pontos</strong> (jogo em dupla), nasce sozinho um <strong>Press</strong> — uma aposta nova, do mesmo valor, começando do zero a partir daquele buraco até o fim do segmento. Dá chance de quem está perdendo recuperar, e pode nascer mais de um Press em cascata no mesmo Front ou Back.</p>
+      <div class="hole-strip" style="margin-top:10px;">
+        <div class="h lose">1</div><div class="h lose">2</div><div class="h press lose">3</div><div class="h tie">4</div><div class="h win">5</div><div class="h win">6</div><div class="h win">7</div><div class="h tie">8</div><div class="h win">9</div>
+      </div>
+      <p style="margin-top:10px;">Nesse Front 9: o jogador perde os buracos 1 e 2 (fica −2) — no buraco 3, já −3, um Press nasce contando a partir do buraco 4. Da metade pra frente ele reage e fecha o Front no positivo na aposta original <strong>e</strong> no Press.</p>
+    </div>
+    <div class="tip"><strong>Jogando em dupla (4 jogadores):</strong> as duas duplas comparam <em>Melhor Bola + Soma</em> das tacadas líquidas — o melhor resultado de cada dupla, somado ao total dos dois, contra a dupla adversária. Cada jogador ainda pode escolher se participa também dos confrontos individuais dentro da dupla (H2H), sem afetar a aposta do time.</div>
+  </section>
+
+  <section class="step" id="skins">
+    <div class="step-intro">
+      <div class="step-eyebrow">Formato 2</div>
+      <div class="step-num">02</div>
+      <h3>Skins</h3>
+      <p class="lede">Cada buraco vale <strong>1 skin</strong>. Quem tiver o menor net sozinho naquele buraco leva.</p>
+      <ul class="actions">
+        <li><span>Empate no buraco: ninguém leva — o skin <strong>acumula</strong> pro próximo</span></li>
+        <li><span>Pode empilhar vários buracos seguidos até alguém finalmente vencer sozinho</span></li>
+        <li><span>Dinheiro final = skins acumulados × valor por skin (padrão: R$20)</span></li>
+      </ul>
+    </div>
+    <div class="example">
+      <div class="ex-label">Exemplo de acúmulo</div>
+      <div class="hole-strip">
+        <div class="h">5</div><div class="h tie">6</div><div class="h tie">7</div><div class="h win">8</div>
+      </div>
+      <p style="margin-top:10px;">Os buracos 6 e 7 empatam — 2 skins ficam parados. No buraco 8, alguém vence sozinho e leva <strong>3 skins de uma vez</strong> (1 do próprio buraco 8 + os 2 acumulados).</p>
+    </div>
+  </section>
+
+  <section class="step" id="stableford" style="border-bottom:none;">
+    <div class="step-intro">
+      <div class="step-eyebrow">Formato 3</div>
+      <div class="step-num">03</div>
+      <h3>Stableford</h3>
+      <p class="lede">Pontos, não tacadas — uma tacada ruim custa só o ponto daquele buraco, não estraga o resto da rodada.</p>
+    </div>
+    <table class="points-table">
+      <tr><th>Resultado no buraco (net vs. par)</th><th>Pontos</th></tr>
+      <tr><td>Eagle ou melhor</td><td class="pts">4</td></tr>
+      <tr><td>Birdie</td><td class="pts">3</td></tr>
+      <tr><td>Par</td><td class="pts">2</td></tr>
+      <tr><td>Bogey</td><td class="pts">1</td></tr>
+      <tr><td>Duplo bogey ou pior</td><td class="pts">0</td></tr>
+    </table>
+    <ul class="actions">
+      <li><span>Some os pontos dos 18 buracos — quem tiver mais pontos no fim, ganha</span></li>
+      <li><span>Dinheiro reflete a diferença de pontos entre o grupo, multiplicada pelo <strong>valor por ponto</strong> (padrão: R$20)</span></li>
+    </ul>
+    <div class="tip"><strong>Dica:</strong> é o formato mais tranquilo pra quem está tendo um dia ruim em alguns buracos — um "10" isolado vale exatamente a mesma coisa (0 pontos) que um "7", então nunca elimina a rodada.</div>
+  </section>
+
+</div>
+<footer>Caddie Stakes Golf</footer>
+
+</body></html>
