@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Caddie Stakes Golf — golf betting scorecard app for Nassau, Skins and Stableford, with AI photo scoring.">
+<title>Caddie Stakes Golf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:        #0d1a0f;
+    --bg-deep:   #071009;
+    --surface:   #12261a;
+    --surface-2: #16301f;
+    --gold:      #c9a84c;
+    --gold-br:   #e3c169;
+    --cream:     #ede4cb;
+    --sage:      #9db09d;
+    --sage-dim:  #5c7460;
+    --line:      rgba(201,168,76,0.24);
+    --line-soft: rgba(237,228,203,0.09);
+    --red:       #b0554a;
+    --serif:     'Cormorant Garamond', Georgia, serif;
+    --sans:      'Inter', -apple-system, system-ui, sans-serif;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  #page{
+    background:var(--bg); color:var(--cream);
+    font-family:var(--sans); font-weight:400;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    line-height:1.5;
+  }
+  #page img{ max-width:100%; }
+  #page h1,#page h2,#page h3{ font-family:var(--serif); font-weight:600; text-wrap:balance; margin:0; }
+  #page p{ margin:0; }
+  #page a{ color:inherit; }
+  #page ::selection{ background:var(--gold); color:var(--bg-deep); }
+
+  /* ── language toggle ── */
+  #page [data-pt],#page [data-en],
+  #page [data-pt-block],#page [data-en-block],
+  #page [data-pt-flex],#page [data-en-flex],
+  #page [data-pt-grid],#page [data-en-grid]{ display:none; }
+  #page.lang-pt [data-pt]{ display:inline; }
+  #page.lang-pt [data-pt-block]{ display:block; }
+  #page.lang-pt [data-pt-flex]{ display:flex; }
+  #page.lang-pt [data-pt-grid]{ display:grid; }
+  #page.lang-en [data-en]{ display:inline; }
+  #page.lang-en [data-en-block]{ display:block; }
+  #page.lang-en [data-en-flex]{ display:flex; }
+  #page.lang-en [data-en-grid]{ display:grid; }
+
+  .wrap{ max-width:1040px; margin:0 auto; padding-inline:24px; }
+  .rule{ height:1px; background:var(--line); border:0; }
+  .eyebrow{
+    font-family:var(--sans); font-size:11px; font-weight:600; letter-spacing:2.5px;
+    text-transform:uppercase; color:var(--gold);
+  }
+
+  /* ── nav ── */
+  #nav{
+    position:sticky; top:env(safe-area-inset-top,0px); z-index:40;
+    background:rgba(7,16,9,0.82); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  #nav .wrap{ display:flex; align-items:center; justify-content:space-between; gap:16px; height:64px; }
+  .brand{ display:flex; align-items:baseline; gap:7px; font-family:var(--serif); font-size:21px; font-weight:600; white-space:nowrap; }
+  .brand b{ color:var(--gold); font-weight:700; }
+  .brand small{ display:none; }
+  #nav-links{ display:flex; align-items:center; gap:26px; font-size:13px; color:var(--sage); }
+  #nav-links a:hover{ color:var(--cream); }
+  .lang-switch{ display:flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; font-size:11px; font-weight:600; letter-spacing:0.5px; }
+  .lang-switch button{
+    appearance:none; border:0; background:transparent; color:var(--sage-dim); cursor:pointer;
+    padding:6px 11px; font:inherit; font-family:var(--sans); font-size:11px; font-weight:600;
+  }
+  .lang-switch button.active{ background:var(--gold); color:var(--bg-deep); }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; justify-content:center;
+    font-family:var(--sans); font-weight:600; font-size:14px; letter-spacing:0.2px;
+    border-radius:8px; padding:11px 20px; cursor:pointer; border:1px solid transparent;
+    text-decoration:none; white-space:nowrap; transition:transform .15s ease, background .15s ease, border-color .15s ease;
+  }
+  .btn:active{ transform:translateY(1px); }
+  .btn-gold{ background:var(--gold); color:var(--bg-deep); }
+  .btn-gold:hover{ background:var(--gold-br); }
+  .btn-ghost{ background:transparent; border-color:var(--line); color:var(--cream); }
+  .btn-ghost:hover{ border-color:var(--gold); color:var(--gold-br); }
+  .btn-sm{ padding:9px 15px; font-size:13px; }
+
+  /* ── hero ── */
+  #hero{ position:relative; overflow:hidden; padding-block:clamp(56px,9vw,104px) clamp(48px,7vw,84px); }
+  #hero::before{
+    content:""; position:absolute; inset:-20% -10% auto -10%; height:70%;
+    background:radial-gradient(ellipse at 30% 0%, rgba(201,168,76,0.14), transparent 60%);
+    pointer-events:none;
+  }
+  #hero .grid{ position:relative; display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center; }
+  #hero h1{ font-size:clamp(38px,5.6vw,64px); line-height:1.05; letter-spacing:-0.5px; margin-bottom:20px; }
+  #hero h1 em{ font-style:normal; color:var(--gold); }
+  #hero .sub{ font-size:clamp(15px,1.6vw,18px); color:var(--sage); max-width:46ch; margin-bottom:30px; }
+  #hero .ctas{ display:flex; gap:12px; flex-wrap:wrap; }
+  #hero .fine{ margin-top:16px; font-size:12px; color:var(--sage-dim); }
+
+  /* ── scorecard artifact (hero visual) ── */
+  .sc-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:14px;
+    padding:22px 22px 20px; box-shadow:0 24px 60px -24px rgba(0,0,0,0.65);
+    animation:sc-in .7s ease both;
+  }
+  @media (prefers-reduced-motion:reduce){ .sc-card{ animation:none; } }
+  @keyframes sc-in{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:none; } }
+  .sc-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
+  .sc-top .name{ font-family:var(--serif); font-size:16px; font-weight:600; }
+  .sc-top .tag{ font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); border:1px solid var(--line); border-radius:999px; padding:3px 9px; }
+  .sc-grid{ display:grid; grid-template-columns:auto repeat(9,1fr); gap:3px; font-variant-numeric:tabular-nums; }
+  .sc-grid .lbl{ font-size:9px; color:var(--sage-dim); display:flex; align-items:center; padding-right:6px; letter-spacing:0.5px; }
+  .sc-grid .cell{ text-align:center; font-size:12px; padding:4px 0; border-radius:4px; color:var(--cream); }
+  .sc-grid .hd{ color:var(--sage-dim); font-size:10px; }
+  .sc-grid .par{ color:var(--sage); }
+  .sc-grid .score{ background:var(--surface-2); font-weight:600; }
+  .sc-grid .score.birdie{ background:rgba(201,168,76,0.22); color:var(--gold-br); }
+  .sc-grid .score.press{ box-shadow:inset 0 0 0 1px var(--gold); }
+  .sc-foot{ display:flex; justify-content:space-between; align-items:flex-end; margin-top:16px; padding-top:14px; border-top:1px dashed var(--line); }
+  .sc-foot .press-note{ font-size:11px; color:var(--sage); }
+  .sc-foot .press-note b{ color:var(--gold-br); }
+  .sc-foot .amount{ font-family:var(--serif); font-size:30px; font-weight:700; color:var(--gold-br); }
+  .sc-foot .amount span{ font-size:13px; color:var(--sage); font-family:var(--sans); font-weight:500; display:block; text-align:right; }
+
+  /* ── sections ── */
+  section{ padding-block:clamp(52px,7vw,88px); }
+  .section-head{ max-width:640px; margin-bottom:clamp(32px,4vw,48px); }
+  .section-head h2{ font-size:clamp(28px,3.4vw,40px); margin-top:10px; }
+  .section-head p{ color:var(--sage); margin-top:14px; font-size:15px; max-width:56ch; }
+  .alt{ background:var(--bg-deep); border-block:1px solid var(--line-soft); }
+
+  /* format cards */
+  .formats{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line-soft); border:1px solid var(--line-soft); border-radius:14px; overflow:hidden; }
+  .format{ background:var(--bg); padding:26px 24px; }
+  .format .num{ font-family:var(--serif); font-size:13px; color:var(--sage-dim); letter-spacing:2px; }
+  .format h3{ font-size:19px; margin-top:10px; margin-bottom:10px; color:var(--gold-br); letter-spacing:0.5px; }
+  .format p{ font-size:13.5px; color:var(--sage); }
+  .formats-foot{ margin-top:20px; font-size:13px; color:var(--sage-dim); border-left:2px solid var(--gold); padding-left:14px; }
+
+  /* how it works */
+  .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:34px; counter-reset:step; }
+  .step{ position:relative; padding-top:46px; }
+  .step::before{
+    counter-increment:step; content:counter(step); font-family:var(--serif); font-size:15px; font-weight:700;
+    position:absolute; top:0; left:0; width:34px; height:34px; border-radius:50%;
+    border:1px solid var(--gold); color:var(--gold-br); display:flex; align-items:center; justify-content:center;
+  }
+  .step h3{ font-size:18px; margin-bottom:8px; }
+  .step p{ font-size:13.5px; color:var(--sage); }
+
+  /* feature grid */
+  .features{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line-soft); border:1px solid var(--line-soft); border-radius:14px; overflow:hidden; }
+  .feature{ background:var(--surface); padding:24px 22px; display:flex; flex-direction:column; gap:8px; }
+  .feature .ico{ width:30px; height:30px; color:var(--gold); }
+  .feature h4{ font-family:var(--sans); font-weight:600; font-size:14.5px; color:var(--cream); }
+  .feature p{ font-size:13px; color:var(--sage); line-height:1.5; }
+
+  /* phone mockups */
+  .phones{ display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
+  .phone{ background:var(--bg-deep); border:1px solid var(--line); border-radius:20px; overflow:hidden; box-shadow:0 30px 70px -30px rgba(0,0,0,0.7); }
+  .phone-bar{ display:flex; align-items:center; justify-content:space-between; padding:14px 16px; border-bottom:1px solid var(--line-soft); }
+  .phone-bar .t{ font-family:var(--serif); font-size:14px; font-weight:600; }
+  .phone-bar .t b{ color:var(--gold); }
+  .phone-bar .pill{ font-size:9px; letter-spacing:1px; text-transform:uppercase; color:var(--sage-dim); border:1px solid var(--line-soft); border-radius:999px; padding:3px 8px; }
+  .phone-body{ padding:16px; display:flex; flex-direction:column; gap:9px; }
+  .prow{ display:flex; justify-content:space-between; align-items:center; background:var(--surface); border-radius:8px; padding:10px 12px; font-size:13px; }
+  .prow .who{ color:var(--cream); }
+  .prow .val{ font-family:var(--serif); font-weight:700; font-variant-numeric:tabular-nums; }
+  .prow .val.pos{ color:var(--gold-br); }
+  .prow .val.neg{ color:var(--red); }
+  .prow.total{ background:transparent; border-top:1px dashed var(--line); border-radius:0; padding-top:12px; margin-top:2px; }
+
+  /* CTA footer */
+  #cta{ text-align:center; }
+  #cta h2{ font-size:clamp(30px,4vw,44px); }
+  #cta p{ color:var(--sage); margin-top:14px; font-size:15px; }
+  #cta .ctas{ margin-top:28px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+
+  footer{ border-top:1px solid var(--line-soft); padding-block:28px; }
+  footer .wrap{ display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; font-size:12px; color:var(--sage-dim); }
+  footer .brand{ font-size:15px; }
+
+  @media (max-width:860px){
+    #hero .grid{ grid-template-columns:1fr; }
+    #hero .ctas{ justify-content:flex-start; }
+    .formats,.features,.steps,.phones{ grid-template-columns:1fr; }
+    #nav-links{ display:none; }
+    .sc-grid{ grid-template-columns:auto repeat(9,minmax(20px,1fr)); }
+  }
+</style>
+</head>
+<body style="margin:0;">
+
+
+<div id="page" class="lang-pt">
+
+  <nav id="nav">
+    <div class="wrap">
+      <div class="brand">Caddie<b>Stakes</b></div>
+      <div id="nav-links">
+        <a href="#formats" data-pt>Formatos</a><a href="#formats" data-en>Formats</a>
+        <a href="#how" data-pt>Como funciona</a><a href="#how" data-en>How it works</a>
+        <a href="#app" data-pt>O app</a><a href="#app" data-en>The app</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:14px;">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" id="btn-pt" class="active" onclick="setLang('pt')">PT</button>
+          <button type="button" id="btn-en" onclick="setLang('en')">EN</button>
+        </div>
+        <a class="btn btn-gold btn-sm" href="https://app.caddiestakesgolf.com" data-pt>Entrar</a>
+        <a class="btn btn-gold btn-sm" href="https://app.caddiestakesgolf.com" data-en>Sign in</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="hero">
+    <div class="wrap grid">
+      <div>
+        <h1 data-pt-block>Todo buraco<br>tem um <em>preço</em>.</h1>
+        <h1 data-en-block>Every hole<br>has a <em>price</em>.</h1>
+        <p class="sub" data-pt-block>O Caddie Stakes Golf marca os pontos, controla os presses e fecha o Nassau — antes de você sair do green 18.</p>
+        <p class="sub" data-en-block>Caddie Stakes Golf keeps score, runs the presses, and settles the Nassau — before you're off the 18th green.</p>
+        <div class="ctas">
+          <a class="btn btn-gold" href="https://app.caddiestakesgolf.com" data-pt>Abrir o app →</a>
+          <a class="btn btn-gold" href="https://app.caddiestakesgolf.com" data-en>Open the app →</a>
+          <a class="btn btn-ghost" href="#how" data-pt>Ver como funciona</a>
+          <a class="btn btn-ghost" href="#how" data-en>See how it works</a>
+        </div>
+        <p class="fine" data-pt-block>Sem loja de app. Instala direto do navegador em 10 segundos.</p>
+        <p class="fine" data-en-block>No app store. Installs straight from the browser in 10 seconds.</p>
+      </div>
+
+      <div class="sc-card" aria-hidden="true">
+        <div class="sc-top">
+          <span class="name" data-pt>Mendes <span style="color:var(--sage);font-weight:400;">vs</span> Torres</span>
+          <span class="name" data-en>Mendes <span style="color:var(--sage);font-weight:400;">vs</span> Torres</span>
+          <span class="tag" data-pt>Nassau · Front 9</span>
+          <span class="tag" data-en>Nassau · Front 9</span>
+        </div>
+        <div class="sc-grid">
+          <div class="lbl" data-pt-block>Buraco</div><div class="lbl" data-en-block>Hole</div>
+          <div class="cell hd">1</div><div class="cell hd">2</div><div class="cell hd">3</div><div class="cell hd">4</div><div class="cell hd">5</div><div class="cell hd">6</div><div class="cell hd">7</div><div class="cell hd">8</div><div class="cell hd">9</div>
+          <div class="lbl">Par</div>
+          <div class="cell par">5</div><div class="cell par">5</div><div class="cell par">3</div><div class="cell par">4</div><div class="cell par">3</div><div class="cell par">4</div><div class="cell par">4</div><div class="cell par">3</div><div class="cell par">4</div>
+          <div class="lbl">Score</div>
+          <div class="cell score">5</div><div class="cell score birdie">4</div><div class="cell score">3</div><div class="cell score">4</div><div class="cell score">4</div><div class="cell score press">4</div><div class="cell score press">3</div><div class="cell score press">4</div><div class="cell score press">4</div>
+        </div>
+        <div class="sc-foot">
+          <p class="press-note" data-pt-block>2 <b>presses</b> disparados nos buracos 6 e 7</p>
+          <p class="press-note" data-en-block>2 <b>presses</b> fired on holes 6 &amp; 7</p>
+          <div class="amount">+R$60<span data-pt>Mendes recebe</span><span data-en>Mendes collects</span></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <hr class="rule">
+
+  <section id="formats">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" data-pt-block>A aposta</div>
+        <div class="eyebrow" data-en-block>The wager</div>
+        <h2 data-pt-block>Três formatos. As regras do seu grupo.</h2>
+        <h2 data-en-block>Three formats. Your group's own rules.</h2>
+        <p data-pt-block>Cada modo calcula na hora, respeitando o handicap de cada jogador buraco a buraco — do jeito que seu clube já joga.</p>
+        <p data-en-block>Every mode settles in real time, weighting each player's handicap hole-by-hole by stroke index — the way your club already plays.</p>
+      </div>
+
+      <div class="formats">
+        <div class="format">
+          <div class="num">01</div>
+          <h3>Nassau</h3>
+          <p data-pt-block>Três apostas em uma: Front 9, Back 9 e Total 18. Ficou dois pontos atrás? Um Press nasce sozinho — aposta nova daquele buraco até o fim, quantas vezes o jogo pedir.</p>
+          <p data-en-block>Three bets in one round: Front 9, Back 9, and Total 18. Fall two points behind and a Press fires on its own — a fresh bet from that hole to the end, cascading as many times as the round demands.</p>
+        </div>
+        <div class="format">
+          <div class="num">02</div>
+          <h3>Skins</h3>
+          <p data-pt-block>Cada buraco vale um skin. Ganhou sozinho, é seu. Empatou, acumula pro próximo — engordando o prêmio até alguém desempatar.</p>
+          <p data-en-block>Every hole is worth one skin. Win it outright and it's yours. Tie, and it carries over — stacking the pot until someone breaks it.</p>
+        </div>
+        <div class="format">
+          <div class="num">03</div>
+          <h3>Stableford</h3>
+          <p data-pt-block>Pontos, não tacadas: eagle vale 4, birdie 3, par 2, bogey 1. Quem soma mais pontos ganha — um buraco ruim nunca acaba com a rodada.</p>
+          <p data-en-block>Points, not strokes: eagle worth 4, birdie 3, par 2, bogey 1. Most points wins, and one bad hole never ends your round.</p>
+        </div>
+      </div>
+      <p class="formats-foot" data-pt-block>Jogando em dupla? Escolha quem entra em cada confronto individual — inclusive quem prefere ficar de fora dele.</p>
+      <p class="formats-foot" data-en-block>Playing as a team? Choose exactly who's in each individual matchup — including who'd rather sit that one out.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="how" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" data-pt-block>Como funciona</div>
+        <div class="eyebrow" data-en-block>How it works</div>
+        <h2 data-pt-block>Do tee ao acerto de contas.</h2>
+        <h2 data-en-block>From the tee to the settle-up.</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3 data-pt-block>Monte o jogo</h3>
+          <h3 data-en-block>Set the game</h3>
+          <p data-pt-block>Escolha jogadores, handicaps, duplas e o formato. Quem já jogou com você antes aparece sozinho pra completar.</p>
+          <p data-en-block>Pick players, handicaps, teams, and the format. Anyone you've played with before autocompletes.</p>
+        </div>
+        <div class="step">
+          <h3 data-pt-block>Jogue</h3>
+          <h3 data-en-block>Play</h3>
+          <p data-pt-block>Lance os scores buraco a buraco, ou tire uma foto do cartão de papel — a IA lê os números, treinada com a sua própria letra.</p>
+          <p data-en-block>Enter scores hole-by-hole, or snap a photo of the paper scorecard — AI reads the numbers, calibrated to your own handwriting.</p>
+        </div>
+        <div class="step">
+          <h3 data-pt-block>Feche a conta</h3>
+          <h3 data-en-block>Settle up</h3>
+          <p data-pt-block>No fim da rodada, cada jogador vê exatamente quanto ganhou ou perdeu — até o último press.</p>
+          <p data-en-block>The moment the round ends, every player sees exactly what they won or lost — down to the last press.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="app">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" data-pt-block>O app</div>
+        <div class="eyebrow" data-en-block>The app</div>
+        <h2 data-pt-block>Feito pra quem joga por algo.</h2>
+        <h2 data-en-block>Built for golfers who play for something.</h2>
+        <p data-pt-block>Sem GPS, sem feed social, sem estatística sobrando. Só a aposta, bem calculada.</p>
+        <p data-en-block>No GPS, no social feed, no stats you didn't ask for. Just the wager, calculated right.</p>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 21V4a1 1 0 0 1 1-1h9l4 4v6l-4-2-4 2-4-2-2 1"/></svg>
+          <h4 data-pt-block>Leitura de cartão por IA</h4>
+          <h4 data-en-block>AI scorecard reading</h4>
+          <p data-pt-block>Fotografe o cartão de papel e deixe a IA passar os scores pro app — calibrada com uma amostra da sua própria caligrafia.</p>
+          <p data-en-block>Photograph the paper card and let AI transcribe the scores — calibrated to a sample of your own handwriting.</p>
+        </div>
+        <div class="feature">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <h4 data-pt-block>Handicap de verdade</h4>
+          <h4 data-en-block>Real handicap math</h4>
+          <p data-pt-block>Vantagens calculadas buraco a buraco pelo índice de handicap, em confrontos individuais e em dupla.</p>
+          <p data-en-block>Strokes allocated hole-by-hole by stroke index, in individual matchups and team play alike.</p>
+        </div>
+        <div class="feature">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 4-6"/></svg>
+          <h4 data-pt-block>Placar corrido com press automático</h4>
+          <h4 data-en-block>Live score with auto-press</h4>
+          <p data-pt-block>Acompanhe o jogo em tempo real — os presses nascem sozinhos assim que alguém fica dois pontos atrás.</p>
+          <p data-en-block>Watch the match live — presses spawn on their own the moment someone falls two points behind.</p>
+        </div>
+        <div class="feature">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 21h8M12 17v4M6 4h12v4a6 6 0 0 1-12 0V4Z"/><path d="M6 6H3a3 3 0 0 0 3 5M18 6h3a3 3 0 0 1-3 5"/></svg>
+          <h4 data-pt-block>Ranking e retrospecto H2H</h4>
+          <h4 data-en-block>Rankings &amp; H2H history</h4>
+          <p data-pt-block>Toda rodada fica salva. Veja quem lidera no geral, ou seu retrospecto pessoal contra um jogador específico.</p>
+          <p data-en-block>Every round is saved. See who's leading overall, or your personal record against one specific player.</p>
+        </div>
+        <div class="feature">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 3h6l1 4H8l1-4Z"/><path d="M6 7h12l1 14H5L6 7Z"/><path d="M10 11v6M14 11v6"/></svg>
+          <h4 data-pt-block>Confrontos sob medida</h4>
+          <h4 data-en-block>Matchups your way</h4>
+          <p data-pt-block>Escolha quem joga individual dentro da dupla — ou quem prefere ficar de fora dessa aposta específica.</p>
+          <p data-en-block>Choose who plays individual matches within a team — or who'd rather sit that particular bet out.</p>
+        </div>
+        <div class="feature">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 18h4"/></svg>
+          <h4 data-pt-block>Instala como um app nativo</h4>
+          <h4 data-en-block>Installs like a native app</h4>
+          <p data-pt-block>Direto do navegador, sem loja de aplicativos. Um atalho na tela inicial, pronto pra jogar.</p>
+          <p data-en-block>Straight from the browser, no app store required. One home-screen shortcut, ready to play.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" data-pt-block>Na tela</div>
+        <div class="eyebrow" data-en-block>On screen</div>
+        <h2 data-pt-block>Do lançamento ao acerto, em duas telas.</h2>
+        <h2 data-en-block>From scoring to settling, in two screens.</h2>
+      </div>
+      <div class="phones">
+        <div class="phone">
+          <div class="phone-bar">
+            <span class="t">Caddie<b>Stakes</b></span>
+            <span class="pill" data-pt>Placar corrido</span>
+            <span class="pill" data-en>Live score</span>
+          </div>
+          <div class="phone-body">
+            <div class="prow"><span class="who" data-pt>Mendes vs Torres · Front 9</span><span class="val pos">+R$40</span></div>
+            <div class="prow"><span class="who" data-pt>Press · buracos 6–9</span><span class="who" data-en>Press · holes 6–9</span><span class="val pos">+R$20</span></div>
+            <div class="prow"><span class="who" data-pt>Dupla A vs Dupla B</span><span class="who" data-en>Team A vs Team B</span><span class="val neg">-R$15</span></div>
+          </div>
+        </div>
+        <div class="phone">
+          <div class="phone-bar">
+            <span class="t">Caddie<b>Stakes</b></span>
+            <span class="pill" data-pt>Resumo</span>
+            <span class="pill" data-en>Summary</span>
+          </div>
+          <div class="phone-body">
+            <div class="prow"><span class="who">Mendes</span><span class="val pos">+R$45</span></div>
+            <div class="prow"><span class="who">Torres</span><span class="val neg">-R$45</span></div>
+            <div class="prow total"><span class="who" data-pt>Rodada · Graciosa CC</span><span class="who" data-en>Round · Graciosa CC</span><span class="val" style="color:var(--sage);font-size:11px;" data-pt>18 buracos</span><span class="val" style="color:var(--sage);font-size:11px;" data-en>18 holes</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cta">
+    <div class="wrap">
+      <div class="eyebrow" data-pt-block>Pronto?</div>
+      <div class="eyebrow" data-en-block>Ready?</div>
+      <h2 data-pt-block>Sua próxima rodada já tem<br>uma aposta te esperando.</h2>
+      <h2 data-en-block>Your next round already has<br>a bet waiting on it.</h2>
+      <p data-pt-block>Grátis pra começar. Sem cartão, sem loja de app.</p>
+      <p data-en-block>Free to start. No card, no app store.</p>
+      <div class="ctas">
+        <a class="btn btn-gold" href="https://app.caddiestakesgolf.com" data-pt>Abrir o Caddie Stakes Golf →</a>
+        <a class="btn btn-gold" href="https://app.caddiestakesgolf.com" data-en>Open Caddie Stakes Golf →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="brand">Caddie<b>Stakes</b> <span data-pt style="font-size:11px;color:var(--sage-dim);font-family:var(--sans);letter-spacing:1px;">GOLF</span><span data-en style="font-size:11px;color:var(--sage-dim);font-family:var(--sans);letter-spacing:1px;">GOLF</span></div>
+      <div data-pt-block>© <span id="y-pt"></span> Caddie Stakes Golf. Feito por golfistas, pra golfistas.</div>
+      <div data-en-block>© <span id="y-en"></span> Caddie Stakes Golf. Made by golfers, for golfers.</div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  (function(){
+    var page = document.getElementById('page');
+    var saved = null;
+    try { saved = localStorage.getItem('csg_lang'); } catch(e) {}
+    var initial = saved || (navigator.language && navigator.language.toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en');
+    window.setLang = function(lang){
+      page.classList.remove('lang-pt','lang-en');
+      page.classList.add('lang-' + lang);
+      document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      try { localStorage.setItem('csg_lang', lang); } catch(e) {}
+    };
+    setLang(initial);
+    var y = new Date().getFullYear();
+    var yp = document.getElementById('y-pt'), ye = document.getElementById('y-en');
+    if (yp) yp.textContent = y;
+    if (ye) ye.textContent = y;
+  })();
+</script>
+
+</body>
+</html>
