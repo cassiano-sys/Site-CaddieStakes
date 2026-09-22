@@ -1,0 +1,618 @@
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Caddie Stakes Golf — Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --paper:#faf6ec; --paper2:#f1e8d4; --panel:#ffffff;
+    --ink:#2b2620; --ink-soft:#6b6152;
+    --gold:#96721c; --gold-soft:#c9a84c;
+    --green:#2f6b45;
+    --rule:rgba(43,38,32,0.14);
+    --serif:'Cormorant Garamond',Georgia,serif;
+    --sans:'Inter',system-ui,-apple-system,sans-serif;
+    --r:16px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#0d1a0f; --paper2:#152417; --panel:#101f13;
+      --ink:#ece3cc; --ink-soft:#93a894;
+      --gold:#d4aa44; --gold-soft:#c9a84c;
+      --green:#5dba7a;
+      --rule:rgba(232,223,200,0.14);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0d1a0f; --paper2:#152417; --panel:#101f13;
+    --ink:#ece3cc; --ink-soft:#93a894;
+    --gold:#d4aa44; --gold-soft:#c9a84c;
+    --green:#5dba7a;
+    --rule:rgba(232,223,200,0.14);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:var(--sans); font-size:18px; line-height:1.6;
+    padding-block:0 64px;
+  }
+  .wrap{ max-width:700px; margin:0 auto; padding:0 20px; }
+
+  /* ── Masthead ── */
+  .masthead{
+    padding:44px 20px 30px; text-align:center;
+    border-bottom:1px solid var(--rule);
+    margin-bottom:8px;
+  }
+  .masthead .flag{ font-size:34px; margin-bottom:6px; }
+  .masthead h1{
+    font-family:var(--serif); font-weight:700; font-size:44px;
+    letter-spacing:0.5px; text-wrap:balance; color:var(--ink);
+  }
+  .masthead h1 em{ font-style:normal; color:var(--gold); }
+  .masthead p{
+    margin-top:10px; color:var(--ink-soft); font-size:16px;
+    max-width:46ch; margin-inline:auto;
+  }
+  .masthead .note{
+    margin-top:16px; font-size:13px; color:var(--ink-soft);
+    background:var(--paper2); border:1px solid var(--rule); border-radius:10px;
+    padding:10px 16px; max-width:52ch; margin-inline:auto; text-align:left;
+  }
+
+  /* ── Index ── */
+  .index{
+    background:var(--paper2); border:1px solid var(--rule);
+    border-radius:var(--r); padding:22px 24px; margin:32px 0 48px;
+  }
+  .index h2{
+    font-family:var(--sans); font-size:12px; font-weight:700;
+    text-transform:uppercase; letter-spacing:1.5px; color:var(--ink-soft);
+    margin-bottom:14px;
+  }
+  .index ol{ list-style:none; display:grid; gap:9px; counter-reset:idx; }
+  .index li{ counter-increment:idx; }
+  .index a{
+    color:var(--ink); text-decoration:none; font-size:16px; font-weight:500;
+    display:flex; gap:10px; align-items:baseline;
+  }
+  .index a:hover{ color:var(--gold); }
+  .index a::before{
+    content:counter(idx); font-family:var(--serif); font-weight:700;
+    color:var(--gold); font-size:17px; min-width:1.4em;
+  }
+
+  /* ── Steps ──
+     Steps are taller than one printed page, so page-break-inside:avoid on the
+     whole section backfires (the browser shoves the entire block to a fresh
+     page, then still has to tear it apart wherever it overflows, leaving a
+     ragged cut and a wasted blank page). Instead we let the section itself
+     break freely and mark only the atomic pieces inside (title+intro, each
+     platform card, the phone mockup, each tip) as unsplittable — the page
+     break then naturally lands in the gap between two of those pieces. */
+  section.step{
+    padding:48px 0; border-bottom:1px solid var(--rule);
+    display:grid; gap:28px;
+  }
+  section.step:last-of-type{ border-bottom:none; }
+  .step-intro{ break-inside:avoid; page-break-inside:avoid; }
+  .step-eyebrow{
+    font-size:12px; font-weight:700; text-transform:uppercase;
+    letter-spacing:2px; color:var(--gold); margin-bottom:6px;
+  }
+  .step-num{
+    font-family:var(--serif); font-size:52px; font-weight:700;
+    color:var(--gold-soft); line-height:1; margin-bottom:2px;
+  }
+  .step h3{
+    font-family:var(--serif); font-size:30px; font-weight:700;
+    text-wrap:balance; margin-bottom:4px;
+  }
+  .step .lede{ color:var(--ink-soft); font-size:16px; max-width:56ch; }
+  .step ul.actions{ list-style:none; display:grid; gap:12px; max-width:60ch; }
+  .step ul.actions li{
+    display:flex; gap:12px; align-items:flex-start; font-size:17px;
+  }
+  .step ul.actions li::before{
+    content:'→'; color:var(--gold); font-weight:700; flex-shrink:0;
+    font-size:16px; margin-top:3px;
+  }
+  .tip{
+    background:var(--paper2); border:1px solid var(--rule); border-left:3px solid var(--green);
+    border-radius:10px; padding:14px 16px; font-size:15px; color:var(--ink-soft);
+    max-width:60ch; break-inside:avoid; page-break-inside:avoid;
+  }
+  .tip strong{ color:var(--green); }
+  .link-box{
+    display:flex; align-items:center; gap:20px;
+    background:var(--paper2); border:1.5px solid var(--gold-soft); border-radius:var(--r);
+    padding:18px 22px; break-inside:avoid; page-break-inside:avoid;
+  }
+  .link-box img{ width:92px; height:92px; border-radius:8px; flex-shrink:0; display:block; }
+  .link-box .link-label{
+    font-size:11px; text-transform:uppercase; letter-spacing:1.5px;
+    color:var(--ink-soft); margin-bottom:5px; font-weight:600;
+  }
+  .link-box a{
+    font-family:var(--serif); font-size:21px; font-weight:700; color:var(--gold);
+    word-break:break-all; text-decoration:underline; text-underline-offset:3px;
+  }
+  .link-box a:hover{ text-decoration:underline; }
+  .link-box .link-hint{ font-size:12px; color:var(--ink-soft); margin-top:5px; }
+  @media (max-width:480px){ .link-box{ flex-direction:column; text-align:center; } }
+  .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:20px; break-inside:avoid; page-break-inside:avoid; }
+  @media (max-width:560px){ .two-col{ grid-template-columns:1fr; } }
+  .three-col{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
+  @media (max-width:720px){ .three-col{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:480px){ .three-col{ grid-template-columns:1fr; } }
+  .platform{
+    background:var(--panel); border:1px solid var(--rule); border-radius:var(--r);
+    padding:18px 20px; break-inside:avoid; page-break-inside:avoid;
+  }
+  .platform h4{
+    font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:1px;
+    color:var(--ink-soft); margin-bottom:10px; display:flex; align-items:center; gap:8px;
+  }
+  .platform ol{ padding-left:20px; display:grid; gap:8px; font-size:15px; }
+
+  /* ── Phone mockup (fixed dark app look, ignores page theme) ── */
+  .phone-frame{
+    width:272px; border-radius:32px; padding:10px;
+    background:#050a05; box-shadow:0 18px 40px -14px rgba(0,0,0,0.45);
+    margin-inline:auto; break-inside:avoid; page-break-inside:avoid;
+  }
+  .phone-screen{
+    --pg:#0d1a0f; --pg2:#0a140c; --surface:rgba(0,0,0,0.35);
+    --pgold:#c9a84c; --pgold2:#d4aa44; --pgreen:#5dba7a; --pdgreen:#2d5a30;
+    --pcream:#e8dfc8; --pmuted:#4a6a4c; --pmuted2:#5a7a5c; --pred:#cc5555;
+    --pborder:rgba(255,255,255,0.08); --pbgold:rgba(201,168,76,0.22);
+    background:var(--pg); border-radius:24px; overflow:hidden;
+    font-family:'Inter',system-ui,sans-serif; color:var(--pcream);
+    min-height:420px; display:flex; flex-direction:column; position:relative;
+  }
+  .p-header{
+    display:flex; align-items:center; justify-content:space-between; gap:6px;
+    padding:14px 13px; background:rgba(6,14,7,0.9); border-bottom:1px solid var(--pborder);
+  }
+  .p-title{ font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:600; white-space:nowrap; }
+  .p-title b{ color:var(--pgold); font-weight:600; }
+  .p-back{
+    border:1px solid rgba(255,255,255,0.15); border-radius:7px; color:var(--pcream);
+    font-size:11px; padding:4px 7px; flex-shrink:0;
+  }
+  .p-body{ padding:16px; flex:1; display:flex; flex-direction:column; gap:12px; }
+  .p-card{
+    background:var(--surface); border:1px solid var(--pborder); border-radius:12px; padding:13px;
+  }
+  .p-card h5{ font-family:'Cormorant Garamond',serif; color:var(--pgold); font-size:14px; margin-bottom:8px; font-weight:600; }
+  .p-field-label{ font-size:8px; color:var(--pmuted); text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
+  .p-input{
+    background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.12); border-radius:7px;
+    color:var(--pcream); font-size:12px; padding:8px 10px; margin-bottom:8px;
+  }
+  .p-btn-primary{
+    background:linear-gradient(135deg,#b8942a,#d4aa44,#b8942a); color:#0a140c;
+    border-radius:10px; padding:11px; text-align:center; font-family:'Cormorant Garamond',serif;
+    font-weight:700; font-size:14px; letter-spacing:0.5px;
+  }
+  .p-btn-secondary{
+    background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.14); color:var(--pcream);
+    border-radius:10px; padding:9px; text-align:center; font-size:11px;
+  }
+  .p-btn-photo{
+    background:rgba(68,136,204,0.1); border:1px dashed rgba(68,136,204,0.4); color:#6aabee;
+    border-radius:10px; padding:10px; text-align:center; font-size:11px; font-weight:500;
+  }
+  .p-btn-green{
+    background:rgba(45,90,45,0.25); border:1px solid rgba(93,186,122,0.4); color:var(--pgreen);
+    border-radius:10px; padding:11px; text-align:center; font-size:12px; font-weight:700;
+  }
+  .p-chip-row{ display:flex; gap:5px; }
+  .p-chip{
+    flex:1; text-align:center; border-radius:6px; border:1px solid rgba(255,255,255,0.1);
+    background:rgba(0,0,0,0.25); color:var(--pmuted2); font-size:10px; padding:6px 2px;
+  }
+  .p-chip.on{ background:var(--pgold); color:#0a140c; font-weight:700; border-color:var(--pgold); }
+  .p-view-toggle{ display:flex; flex-shrink:0; gap:2px; background:rgba(0,0,0,0.3); border-radius:7px; padding:2px; position:relative; }
+  .p-view-toggle span{ padding:4px 6px; border-radius:5px; font-size:9px; color:var(--pmuted2); white-space:nowrap; }
+  .p-view-toggle span.on{ background:var(--pgold); color:#0a140c; font-weight:700; }
+  .p-view-toggle.highlight{ box-shadow:0 0 0 3px var(--gold-soft); }
+  .callout-tag{
+    position:absolute; background:var(--gold); color:#0a140c; font-size:11px; font-weight:700;
+    padding:4px 10px; border-radius:7px; white-space:nowrap; top:-34px; right:0;
+  }
+  .callout-tag::after{
+    content:''; position:absolute; bottom:-5px; right:14px;
+    width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent;
+    border-top:5px solid var(--gold);
+  }
+  .p-player-row{ display:flex; justify-content:space-between; align-items:center; font-size:11px; padding:6px 0; border-bottom:1px solid var(--pborder); }
+  .p-player-row:last-child{ border:none; }
+  .p-hcp{ color:var(--pmuted2); font-size:10px; }
+  .p-nav{
+    display:flex; background:rgba(6,14,7,0.95); border-top:1px solid var(--pborder); padding:9px 0 12px;
+  }
+  .p-nav div{ flex:1; text-align:center; font-size:9px; color:var(--pmuted); display:flex; flex-direction:column; gap:3px; }
+  .p-nav div.on{ color:var(--pgold); }
+  .p-nav .ic{ font-size:16px; }
+  .p-hole-row{ display:flex; align-items:center; justify-content:center; gap:10px; margin:6px 0; }
+  .p-adj{ width:30px; height:38px; border:1px solid rgba(255,255,255,0.12); border-radius:7px; display:flex; align-items:center; justify-content:center; font-size:16px; color:var(--pcream); }
+  .p-score{ width:44px; height:38px; border:1px solid rgba(255,255,255,0.18); border-radius:7px; display:flex; align-items:center; justify-content:center; font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; }
+  .p-grid18{ display:grid; grid-template-columns:repeat(9,1fr); gap:3px; }
+  .p-cell{ aspect-ratio:1; border-radius:5px; background:rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; font-size:10px; color:var(--pcream); }
+  .p-cell.gold{ background:var(--pgold); color:#0a140c; font-weight:700; }
+  .p-cell.filled{ background:rgba(45,90,45,0.35); color:#8fd6a4; border-color:rgba(93,186,122,0.35); }
+  .p-badge{ display:inline-block; font-size:10px; border-radius:20px; padding:3px 9px; }
+  .p-badge.hi{ background:rgba(93,186,122,0.18); color:#8fd6a4; }
+  .p-note{ font-size:10px; color:var(--pmuted2); margin-top:6px; font-style:italic; }
+  .p-saldo{ display:grid; grid-template-columns:1fr 1fr; gap:7px; }
+  .p-scell{ border-radius:10px; padding:12px 6px; text-align:center; }
+  .p-scell.win{ background:rgba(45,90,45,0.25); border:1px solid rgba(93,186,122,0.35); }
+  .p-scell.lose{ background:rgba(150,40,40,0.15); border:1px solid rgba(204,85,85,0.25); }
+  .p-sname{ font-size:9px; color:var(--pmuted2); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px; }
+  .p-sval{ font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; }
+  .p-sval.pos{ color:var(--pgreen); } .p-sval.neg{ color:var(--pred); }
+  .p-rank-row{ display:flex; align-items:center; gap:8px; padding:9px 10px; border-radius:10px; background:rgba(0,0,0,0.2); border:1px solid var(--pborder); margin-bottom:6px; font-size:12px; }
+  .p-rank-row.lead{ background:var(--pbgold); border-color:rgba(201,168,76,0.3); }
+  .p-medal{ width:16px; text-align:center; }
+  .p-rmoney{ margin-left:auto; font-family:'Cormorant Garamond',serif; font-weight:700; }
+  .callout{
+    position:absolute; background:var(--gold); color:#0a140c; font-size:10px; font-weight:700;
+    padding:3px 8px; border-radius:6px; white-space:nowrap;
+  }
+  .callout::after{ content:''; position:absolute; width:8px; height:8px; background:var(--gold); }
+
+  .faq{ display:grid; gap:18px; max-width:64ch; }
+  .faq-item{ break-inside:avoid; page-break-inside:avoid; }
+  .faq-item h4{ font-size:17px; font-weight:600; margin-bottom:4px; }
+  .faq-item p{ color:var(--ink-soft); font-size:15px; }
+
+  footer{ text-align:center; padding:18px 20px 0; color:var(--ink-soft); font-size:13px; }
+
+  @media print{
+    :root{
+      --paper:#ffffff; --paper2:#f4efe2; --panel:#ffffff;
+      --ink:#221f1a; --ink-soft:#544c3d; --gold:#8a6a1c; --gold-soft:#b8942a;
+      --green:#255c38; --rule:#d9d0ba;
+    }
+    body{ font-size:15px; padding-block:0; }
+    .masthead{ padding-top:10px; }
+    section.step{ padding:26px 0; }
+    .phone-frame{ box-shadow:none; border:1px solid var(--rule); }
+    footer{ padding-top:8px; }
+  }
+</style>
+
+<div class="masthead">
+  <div class="flag">⛳</div>
+  <h1>The <em>Caddie Stakes Golf</em> Guide</h1>
+  <p>A step-by-step guide to installing the app on your phone and playing your first round without a hitch.</p>
+  <p class="note">Note: the app's own screens are in Portuguese only. This guide is in English, but the buttons and labels you'll actually see are shown in Portuguese below — we translate each one as it comes up.</p>
+  <p style="margin-top:16px;"><a href="/" style="color:var(--gold); font-size:14px; text-decoration:underline; text-underline-offset:3px;">← Back to caddiestakesgolf.com</a></p>
+</div>
+
+<div class="wrap">
+
+  <div class="index">
+    <h2>In this guide</h2>
+    <ol>
+      <li><a href="#step1">Install the app on your phone</a></li>
+      <li><a href="#step2">Sign in to the app</a></li>
+      <li><a href="#step3">Get to know the home screen</a></li>
+      <li><a href="#step4">Start a new round</a></li>
+      <li><a href="#step5">Enter your scores</a></li>
+      <li><a href="#step6">See the wager result</a></li>
+      <li><a href="#step7">Check history and rankings later</a></li>
+      <li><a href="#step8">Common questions</a></li>
+    </ol>
+  </div>
+
+  <section class="step" id="step1">
+    <div class="step-intro">
+      <div class="step-eyebrow">Step 1</div>
+      <div class="step-num">01</div>
+      <h3>Install the app on your phone</h3>
+      <p class="lede">Caddie Stakes Golf isn't in an app store — it installs straight from the link below, like a shortcut. Once that's done, it works just like any other app on your home screen.</p>
+    </div>
+    <div class="link-box">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATYAAAE2AQAAAADDx4MEAAACGklEQVR4nO2aQYobMRBFnyJBljLMgTQ3CzlSbtA+yhzAoF4GZH4WkrrlkMBAGLmnU1o0tvWgLT6lqvqSE+8Z9y/vwsC4f+PQsn2SCqTspSUWSCp9Kpajr+MsHFqiJKlUZaoUdcSCJEmL6TGTuzvnLtSAcN/eQtWozl+dc8/+f/8TF8Yv64scgEv5HgT3j3uvcX8eox7XV4+gBIGXS8sHvte4v4whfyh7tYckyx/P4Mb6aonl90cbpscsrkVAHdmLlLtGaZgxPSZxY0Ao93q3NSGqD5LpMYsLgJcjern0wxdH3OZWh9JbKLpebkdfx1m4ANTaNogVxPpVsALEW4D400E8/DrOwrFvS90lUU0itb6y/Wou13vxWHqlFSUteNV0ouxl9dU8jmZdbfEBXl0Udnvx6Os4C9ciIFU/sX0C/OYxWnzM5Gi9OF5Nj9z6jzqRmlpHX8dZuL5V0SJl37SkTN2vLD7mcYzWlUo/lNKuUe0Rj76Os3DdptoOBFP3E7sUsviYyLGXtT2ft3RSH5Y/5nIPpe5mWLX0TvvN/MRp3Ojv1l58ixQGoUyPSdzD/ZJMTSJbV279xxO4fj4IgL67ANcLXQqAlD/DOk7BVX8X4g2urwDxFhzcnVgdEDPmt8/jhnq3V1r7mbrlj+ncqMe2QY2XGjA/cSb3eL8EWjrJvb6qJpbVu7O4x/sl0n7+MZxH2X41jXN2v/1Q3C/uahlxro66cAAAAABJRU5ErkJggg==" alt="QR code to install Caddie Stakes Golf" />
+      <div>
+        <div class="link-label">Caddie Stakes Golf address</div>
+        <a href="https://app.caddiestakesgolf.com/">app.caddiestakesgolf.com</a>
+        <div class="link-hint">Point your phone's camera at the QR code, or type the address into your browser.</div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="platform">
+        <h4>📱 iPhone</h4>
+        <ol>
+          <li>Open <strong>this link</strong> (above) in <strong>Safari</strong> (it has to be Safari)</li>
+          <li>Tap the Share icon (square with an arrow pointing up)</li>
+          <li>Tap <strong>"Add to Home Screen"</strong></li>
+          <li>Tap <strong>"Add"</strong> in the top-right corner</li>
+        </ol>
+      </div>
+      <div class="platform">
+        <h4>🤖 Android</h4>
+        <ol>
+          <li>Open <strong>this link</strong> (above) in <strong>Chrome</strong></li>
+          <li>Tap the three dots in the top-right corner</li>
+          <li>Tap <strong>"Add to Home screen"</strong></li>
+          <li>Confirm</li>
+        </ol>
+      </div>
+    </div>
+    <div class="tip"><strong>Tip:</strong> once installed, the app icon sits on your home screen just like any other app. You won't need to repeat this step again.</div>
+  </section>
+
+  <section class="step" id="step2">
+    <div class="step-intro">
+      <div class="step-eyebrow">Step 2</div>
+      <div class="step-num">02</div>
+      <h3>Sign in to the app</h3>
+      <p class="lede">The first time, you'll need to create an account with an email and password. After that, the app remembers you.</p>
+      <ul class="actions">
+        <li><span>Tap the Caddie Stakes Golf icon on your home screen</span></li>
+        <li><span>Already have an account? Enter your email and password and tap <strong>"Entrar"</strong> ("Sign in")</span></li>
+        <li><span>First time? Tap <strong>"Criar conta"</strong> ("Create account"), then fill in your name, email and password</span></li>
+      </ul>
+    </div>
+    <div class="phone-frame">
+      <div class="phone-screen">
+        <div class="p-body" style="align-items:center; text-align:center; justify-content:center; padding-top:40px;">
+          <div style="font-size:38px;">⛳</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:700;">Caddie<span style="color:var(--pgold);">Stakes</span></div>
+          <div style="font-size:9px; color:var(--pmuted2); letter-spacing:2px; text-transform:uppercase; margin-bottom:10px;">Golfe com Nassau &amp; Press</div>
+          <div style="width:100%; text-align:left;">
+            <div class="p-field-label">Email</div>
+            <div class="p-input">seu@email.com</div>
+            <div class="p-field-label">Senha</div>
+            <div class="p-input">••••••••</div>
+          </div>
+          <div class="p-btn-primary" style="width:100%; margin-top:6px;">Entrar</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="step" id="step3">
+    <div class="step-intro">
+      <div class="step-eyebrow">Step 3</div>
+      <div class="step-num">03</div>
+      <h3>Get to know the home screen</h3>
+      <p class="lede">This is the screen you land on right after signing in. The gold button in the middle is the important one — every round starts there.</p>
+      <ul class="actions">
+        <li><span>Tap <strong>"Nova Rodada"</strong> ("New Round") to start playing</span></li>
+        <li><span>Use the icons at the bottom for history, the group ranking, and your profile</span></li>
+      </ul>
+    </div>
+    <div class="phone-frame">
+      <div class="phone-screen">
+        <div class="p-header"><div class="p-title">Caddie<b>Stakes</b></div><div style="font-size:16px;">👤</div></div>
+        <div class="p-body" style="justify-content:center; gap:18px;">
+          <div class="p-btn-primary" style="padding:22px; font-size:17px;">⛳ Nova Rodada</div>
+          <div class="p-btn-secondary">📖 Ver campos salvos</div>
+        </div>
+        <div class="p-nav">
+          <div class="on"><span class="ic">🏠</span>Início</div>
+          <div><span class="ic">📋</span>Histórico</div>
+          <div><span class="ic">🏆</span>Ranking</div>
+          <div><span class="ic">👤</span>Perfil</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="step" id="step4">
+    <div class="step-intro">
+      <div class="step-eyebrow">Step 4</div>
+      <div class="step-num">04</div>
+      <h3>Start a new round</h3>
+      <p class="lede">This is where you set up the game: pick the course, who's playing, and the wager format. If you've played with these people before, their names pop up on their own — just tap to fill them in.</p>
+      <ul class="actions">
+        <li><span>Choose the course (Graciosa is already set up)</span></li>
+        <li><span>Type each player's name — names you've used before show up in a small list, tap one to fill it in</span></li>
+        <li><span>Check the <strong>Nassau</strong> format and the bet amount per point</span></li>
+        <li><span>Tap <strong>"Iniciar rodada"</strong> ("Start round")</span></li>
+      </ul>
+    </div>
+    <div class="phone-frame">
+      <div class="phone-screen">
+        <div class="p-header"><div class="p-back">← Voltar</div><div class="p-title">Nova <b>Rodada</b></div><div style="width:34px;"></div></div>
+        <div class="p-body">
+          <div class="p-card">
+            <h5>Campo</h5>
+            <div class="p-input" style="margin-bottom:0;">Graciosa Country Club</div>
+          </div>
+          <div class="p-card">
+            <h5>Jogadores</h5>
+            <div class="p-player-row"><span>1. Cassiano</span><span class="p-hcp">HCP 10</span></div>
+            <div class="p-player-row"><span>2. Tiger</span><span class="p-hcp">HCP 16</span></div>
+            <div class="p-player-row"><span>3. Rory</span><span class="p-hcp">HCP 14</span></div>
+            <div class="p-player-row"><span>4. Paulo</span><span class="p-hcp">HCP 18</span></div>
+          </div>
+          <div class="p-card">
+            <h5>Formato</h5>
+            <div class="p-chip-row"><div class="p-chip on">Nassau</div><div class="p-chip">Skins</div><div class="p-chip">Stableford</div></div>
+          </div>
+          <div class="p-btn-primary">Iniciar rodada</div>
+        </div>
+      </div>
+    </div>
+    <div class="tip"><strong>Tip:</strong> the handicap field fills itself in with the value used the <em>last</em> time that player played — not the handicap from when they were first registered. You can edit it freely before starting the round; the new value is what sticks for next time.</div>
+  </section>
+
+  <section class="step" id="step5">
+    <div class="step-intro">
+      <div class="step-eyebrow">Step 5</div>
+      <div class="step-num">05</div>
+      <h3>Enter your scores</h3>
+      <p class="lede">There are three ways to enter scores in the app. Use whichever is easiest for you — they all lead to the same place.</p>
+    </div>
+    <div class="three-col">
+      <div class="platform">
+        <h4>🎯 Hole by hole</h4>
+        <p style="font-size:14px; color:var(--ink-soft);">A new hole already shows the par number in gray — tap it and the score is set to par right away, no need to tap <strong>+</strong> or <strong>−</strong> first. Then just adjust with the buttons, or tap the number and type a value directly.</p>
+      </div>
+      <div class="platform">
+        <h4>⌨️ Quick entry</h4>
+        <p style="font-size:14px; color:var(--ink-soft);">A grid with all 18 holes on one screen. Tap a hole's box and type the number directly. Faster if you already know the scores by heart.</p>
+      </div>
+      <div class="platform">
+        <h4>📷 Scorecard photo</h4>
+        <p style="font-size:14px; color:var(--ink-soft);">Take a photo of the hand-filled paper scorecard. The app reads the numbers on its own — you just confirm or correct them before saving.</p>
+      </div>
+    </div>
+    <div class="phone-frame">
+      <div class="phone-screen">
+        <div class="p-header"><div class="p-back">←</div><div class="p-title">Caddie<b>Stakes</b></div><div class="p-view-toggle"><span class="on">Cartão</span><span>Resumo</span></div></div>
+        <div class="p-body" style="align-items:center;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; width:100%;">
+            <div style="font-size:11px; color:var(--pmuted2);">Front 9<br><b style="color:var(--pcream); font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:600;">Buraco 7</b></div>
+            <div style="font-size:11px; color:var(--pmuted2); text-align:right;">Par<br><b style="color:var(--pcream); font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:600;">4</b></div>
+          </div>
+          <div class="p-hole-row">
+            <div class="p-adj">−</div>
+            <div class="p-score">5</div>
+            <div class="p-adj">+</div>
+          </div>
+          <div style="font-size:10px; color:var(--pgold); margin-bottom:6px;">+1 sobre o par</div>
+          <div class="p-grid18" style="width:100%;">
+            <div class="p-cell filled">1</div><div class="p-cell filled">2</div><div class="p-cell filled">3</div>
+            <div class="p-cell filled">4</div><div class="p-cell filled">5</div><div class="p-cell filled">6</div>
+            <div class="p-cell gold">7</div><div class="p-cell">8</div><div class="p-cell">9</div>
+          </div>
+          <div class="p-btn-photo" style="width:100%; margin-top:10px;">📷 Ou tire uma foto do cartão</div>
+        </div>
+      </div>
+    </div>
+    <div class="tip"><strong>Tip:</strong> on the photo review screen, every number stays editable. If a hole gets misread, just tap it and fix it before saving — nothing is lost.</div>
+    <div class="tip"><strong>Important:</strong> the <strong>"Cartão"</strong> / <strong>"Resumo"</strong> ("Scorecard" / "Summary") toggle at the top of the screen is always visible — it's what switches between entering scores and seeing the wager result. After hole 18, tap <strong>"Resumo"</strong> to see who won (Step 6).</div>
+  </section>
+
+  <section class="step" id="step6">
+    <div class="step-intro">
+      <div class="step-eyebrow">Step 6</div>
+      <div class="step-num">06</div>
+      <h3>See the result and save the round</h3>
+      <p class="lede">After the last hole, the app settles the numbers on its own and shows, front and center, <strong>how much each player actually won or lost</strong> — that's the figure that decides the day's wager.</p>
+      <ul class="actions">
+        <li><span>The screen always opens on <strong>"Cartão"</strong> — tap <strong>"Resumo"</strong>, at the top, to see the final result</span></li>
+        <li><span>Green with a <strong>+</strong> means that person won that amount; red with a <strong>−</strong>, that they lost it</span></li>
+        <li><span>Scroll a bit to see the front-nine and back-nine breakdown</span></li>
+        <li><span>Scroll to the end and tap <strong>"💾 Salvar rodada"</strong> ("Save round") — without this, the round won't be saved to your history or counted in the group ranking</span></li>
+      </ul>
+    </div>
+    <div class="phone-frame">
+      <div class="phone-screen">
+        <div class="p-header"><div class="p-back">←</div><div class="p-title">Caddie<b>Stakes</b></div><div class="p-view-toggle highlight"><span>Cartão</span><span class="on">Resumo</span></div></div>
+        <div class="p-body">
+          <h5 style="font-family:'Cormorant Garamond',serif; color:var(--pgold); font-size:15px; font-weight:600; text-align:center;">Saldo Final</h5>
+          <div class="p-saldo" style="margin-top:-6px;">
+            <div class="p-scell win"><div class="p-sname">Cassiano</div><div class="p-sval pos">+R$40</div></div>
+            <div class="p-scell lose"><div class="p-sname">Tiger</div><div class="p-sval neg">−R$40</div></div>
+          </div>
+          <div class="p-card">
+            <h5>Front 9</h5>
+            <div style="font-size:11px; color:var(--pmuted2);">Cassiano venceu 2 e 1 · R$20</div>
+          </div>
+          <div class="p-card">
+            <h5>Back 9</h5>
+            <div style="font-size:11px; color:var(--pmuted2);">Cassiano venceu 3 e 2 · R$20</div>
+          </div>
+          <div class="p-btn-green">💾 Salvar rodada</div>
+        </div>
+      </div>
+    </div>
+    <div class="tip"><strong>Tip:</strong> as soon as you save, the app opens a reveal screen showing each player's result one by one — a good moment to celebrate (or collect) in front of everyone.</div>
+  </section>
+
+  <section class="step" id="step7">
+    <div class="step-intro">
+      <div class="step-eyebrow">Step 7</div>
+      <div class="step-num">07</div>
+      <h3>Check history and rankings later</h3>
+      <p class="lede">Every saved round stays on record. You can look back at any past game, see who's ahead overall, or check your personal track record against a specific player.</p>
+      <ul class="actions">
+        <li><span>In the bottom menu, tap <strong>"Histórico"</strong> ("History") to see past rounds</span></li>
+        <li><span>Tap <strong>"Ranking"</strong> and then <strong>"Geral"</strong> ("Overall") to see each player's running balance</span></li>
+        <li><span>Tap <strong>"H2H"</strong> for head-to-head — type a player's name to filter just the games against them, and use the time filters (week, month, year) to track your recent form</span></li>
+      </ul>
+    </div>
+    <div class="phone-frame">
+      <div class="phone-screen">
+        <div class="p-header"><div class="p-back">←</div><div class="p-title">🏆 <b>Ranking</b></div><div class="p-view-toggle"><span class="on">Geral</span><span>H2H</span></div></div>
+        <div class="p-body">
+          <div class="p-rank-row lead"><div class="p-medal">🥇</div><div>Cassiano</div><div class="p-rmoney pos" style="color:var(--pgreen);">+R$180</div></div>
+          <div class="p-rank-row"><div class="p-medal">🥈</div><div>Rory</div><div class="p-rmoney" style="color:var(--pmuted2);">+R$40</div></div>
+          <div class="p-rank-row"><div class="p-medal">🥉</div><div>Tiger</div><div class="p-rmoney" style="color:var(--pred);">−R$60</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="phone-frame">
+      <div class="phone-screen">
+        <div class="p-header"><div class="p-back">←</div><div class="p-title">🏆 <b>Ranking</b></div><div class="p-view-toggle"><span>Geral</span><span class="on">H2H</span></div></div>
+        <div class="p-body">
+          <div class="p-input" style="margin-bottom:0;">🔍 Buscar jogador...</div>
+          <div class="p-chip-row">
+            <div class="p-chip on">Todos</div><div class="p-chip">Semana</div><div class="p-chip">Mês</div><div class="p-chip">Ano</div>
+          </div>
+          <div class="p-card" style="display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <div style="font-size:8px; color:var(--pmuted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Seu saldo vs "Tiger" · Todos os jogos</div>
+              <div style="font-size:10px; color:var(--pmuted2);">3 confrontos</div>
+            </div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; color:var(--pgreen);">+R$60</div>
+          </div>
+          <div class="p-card">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <div style="font-weight:700; font-size:12px;">Cassiano <span style="color:var(--pmuted2); font-weight:400;">vs</span> Tiger</div>
+                <div style="font-size:10px; color:var(--pmuted2); margin-top:2px;">3 confrontos</div>
+              </div>
+              <div style="text-align:right;">
+                <div style="color:var(--pgreen); font-weight:700; font-size:12px;">Cassiano +R$60</div>
+                <div style="color:var(--pred); font-size:10px;">Tiger −R$60</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tip"><strong>Tip:</strong> H2H is personal — it only shows matchups that involve you. Leave the search blank to see all your opponents at once, or type a name to focus on just one.</div>
+  </section>
+
+  <section class="step" id="step8" style="border-bottom:none; break-inside:avoid; page-break-inside:avoid;">
+    <div class="step-intro">
+      <div class="step-eyebrow">Step 8</div>
+      <div class="step-num">?</div>
+      <h3>Common questions</h3>
+    </div>
+    <div class="faq">
+      <div class="faq-item">
+        <h4>I forgot my password — now what?</h4>
+        <p>On the sign-in screen, look for the password recovery option (or ask Cassiano to set up a fresh account for you, if you'd rather keep it simple).</p>
+      </div>
+      <div class="faq-item">
+        <h4>I entered a wrong number — does that break the round?</h4>
+        <p>No. Every score can be corrected at any time, even after it's been entered — just tap the number again and change it.</p>
+      </div>
+      <div class="faq-item">
+        <h4>The scorecard photo misread a number</h4>
+        <p>That happens sometimes, especially with tight handwriting. The review screen always shows the numbers before saving — fix whatever you need right there.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Do I need to reinstall it every time?</h4>
+        <p>No — once installed (Step 1), the icon stays on your home screen like any other app.</p>
+      </div>
+      <div class="faq-item">
+        <h4>I got stuck mid-round</h4>
+        <p>Just call Cassiano — he keeps an eye on the app and can help fix anything on the spot, even after a round has already been saved.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+<footer>Caddie Stakes Golf</footer>
+
+</body></html>
