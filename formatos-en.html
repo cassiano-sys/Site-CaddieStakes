@@ -163,7 +163,7 @@
 <div class="masthead">
   <div class="flag">⛳</div>
   <h1>How the <em>betting formats</em> work</h1>
-  <p>A quick guide to Caddie Stakes Golf's three formats — Nassau, Skins and Stableford — exactly the way the app actually calculates each one.</p>
+  <p>A quick guide to Caddie Stakes Golf's five formats — Nassau, Match Play, Medal, Skins and Stableford — exactly the way the app actually calculates each one.</p>
   <p style="margin-top:16px;"><a href="/" style="color:var(--gold); font-size:14px; text-decoration:underline; text-underline-offset:3px;">← Back to caddiestakesgolf.com</a></p>
 </div>
 
@@ -174,6 +174,8 @@
     <ol>
       <li><a href="#handicap">How handicap factors in</a></li>
       <li><a href="#nassau">Nassau</a></li>
+      <li><a href="#matchplay">Match Play</a></li>
+      <li><a href="#medal">Medal</a></li>
       <li><a href="#skins">Skins</a></li>
       <li><a href="#stableford">Stableford</a></li>
     </ol>
@@ -216,16 +218,45 @@
     <div class="tip"><strong>Playing as a team (4 players):</strong> the two teams compare <em>Best Ball + Sum</em> of net scores — each team's best result, added to their combined total, against the other team's. Each player can still choose whether they also count toward the individual head-to-head matchups inside the team, without affecting the team bet itself.</div>
   </section>
 
-  <section class="step" id="skins">
+  <section class="step" id="matchplay">
     <div class="step-intro">
       <div class="step-eyebrow">Format 2</div>
       <div class="step-num">02</div>
+      <h3>Match Play</h3>
+      <p class="lede">It's the exact Nassau you just read about — <strong>Front 9 / Back 9 / Total 18</strong>, same values, same hole-by-hole scoring — just <strong>without the Press</strong>. The running score plays straight through from the first to the last hole of each segment, with no side bet spawning midway.</p>
+      <ul class="actions">
+        <li><span>Same team and individual-matchup structure as Nassau</span></li>
+        <li><span>Up 2, 5, or 8 points — doesn't matter: no Press ever fires, it's the same single bet from start to finish of the segment</span></li>
+      </ul>
+    </div>
+    <div class="tip"><strong>When to pick it:</strong> if the group prefers a more predictable match — without the Press's snowball effect stacking bets late in the Front or Back — Match Play is Nassau in "classic mode."</div>
+  </section>
+
+  <section class="step" id="medal">
+    <div class="step-intro">
+      <div class="step-eyebrow">Format 3</div>
+      <div class="step-num">03</div>
+      <h3>Medal</h3>
+      <p class="lede">Pure stroke play: <strong>Front 9</strong>, <strong>Back 9</strong> and <strong>Total 18</strong> are three independent prizes (same values as Nassau) — whoever has the lowest net-stroke total in that segment takes it.</p>
+      <ul class="actions">
+        <li><span>Everyone competes together, not in pairs — there's no H2H, just one combined total per segment</span></li>
+        <li><span>A full tie on a segment: nobody wins or pays (a push)</span></li>
+        <li><span>Whoever didn't win that segment splits its value and pays the winner</span></li>
+      </ul>
+    </div>
+    <div class="tip"><strong>Good to know:</strong> since everyone adds up all 18 holes (not points per hole like Nassau), Medal rewards consistency — one extra stroke on any hole lands straight on the segment total.</div>
+  </section>
+
+  <section class="step" id="skins">
+    <div class="step-intro">
+      <div class="step-eyebrow">Format 4</div>
+      <div class="step-num">04</div>
       <h3>Skins</h3>
       <p class="lede">Every hole is worth <strong>1 skin</strong>. Whoever has the sole lowest net score on that hole takes it.</p>
       <ul class="actions">
         <li><span>A tie on the hole: nobody wins it — the skin <strong>carries over</strong> to the next one</span></li>
         <li><span>Several holes in a row can stack up until someone finally wins one outright</span></li>
-        <li><span>Final payout = accumulated skins × value per skin (default: R$20)</span></li>
+        <li><span>Final payout = accumulated skins × value per skin (default: R$20) — whoever won zero skins splits the total payout among themselves</span></li>
       </ul>
     </div>
     <div class="example">
@@ -239,8 +270,8 @@
 
   <section class="step" id="stableford" style="border-bottom:none;">
     <div class="step-intro">
-      <div class="step-eyebrow">Format 3</div>
-      <div class="step-num">03</div>
+      <div class="step-eyebrow">Format 5</div>
+      <div class="step-num">05</div>
       <h3>Stableford</h3>
       <p class="lede">Points, not strokes — one bad hole only costs you that hole's point, it doesn't wreck the rest of the round.</p>
     </div>
@@ -254,7 +285,7 @@
     </table>
     <ul class="actions">
       <li><span>Add up the points from all 18 holes — whoever has the most points at the end wins</span></li>
-      <li><span>Money reflects the point difference across the group, multiplied by the <strong>value per point</strong> (default: R$20)</span></li>
+      <li><span>Money reflects the point difference between the leader and the runner-up, multiplied by the <strong>value per point</strong> (default: R$20) — whoever didn't lead splits that amount among themselves</span></li>
     </ul>
     <div class="tip"><strong>Good to know:</strong> it's the most forgiving format on an off day — a stray "10" is worth exactly the same (0 points) as a "7", so it never sinks the round.</div>
   </section>
