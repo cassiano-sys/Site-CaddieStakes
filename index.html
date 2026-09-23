@@ -141,7 +141,8 @@
   .alt{ background:var(--bg-deep); border-block:1px solid var(--line-soft); }
 
   /* format cards */
-  .formats{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line-soft); border:1px solid var(--line-soft); border-radius:14px; overflow:hidden; }
+  .formats{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line-soft); border:1px solid var(--line-soft); border-radius:14px; overflow:hidden; }
+  .formats .format:last-child{ grid-column:1 / -1; }
   .format{ background:var(--bg); padding:26px 24px; }
   .format .num{ font-family:var(--serif); font-size:13px; color:var(--sage-dim); letter-spacing:2px; }
   .format h3{ font-size:19px; margin-top:10px; margin-bottom:10px; color:var(--gold-br); letter-spacing:0.5px; }
@@ -286,8 +287,8 @@
       <div class="section-head">
         <div class="eyebrow" data-pt-block>A aposta</div>
         <div class="eyebrow" data-en-block>The wager</div>
-        <h2 data-pt-block>Três formatos. As regras do seu grupo.</h2>
-        <h2 data-en-block>Three formats. Your group's own rules.</h2>
+        <h2 data-pt-block>Cinco formatos. As regras do seu grupo.</h2>
+        <h2 data-en-block>Five formats. Your group's own rules.</h2>
         <p data-pt-block>Cada modo calcula na hora, respeitando o handicap de cada jogador buraco a buraco — do jeito que seu clube já joga.</p>
         <p data-en-block>Every mode settles in real time, weighting each player's handicap hole-by-hole by stroke index — the way your club already plays.</p>
       </div>
@@ -301,12 +302,24 @@
         </div>
         <div class="format">
           <div class="num">02</div>
+          <h3>Match Play</h3>
+          <p data-pt-block>O mesmo Nassau — Front 9, Back 9, Total 18 — só que sem o Press. Placar corrido do início ao fim de cada segmento, sem aposta nova nascendo no meio do caminho.</p>
+          <p data-en-block>The same Nassau — Front 9, Back 9, Total 18 — just without the Press. The score runs straight through each segment, with no side bet spawning midway.</p>
+        </div>
+        <div class="format">
+          <div class="num">03</div>
+          <h3>Medal</h3>
+          <p data-pt-block>Stroke play puro: Front 9, Back 9 e Total 18 são três prêmios próprios. Quem tiver o menor total líquido em cada trecho leva.</p>
+          <p data-en-block>Pure stroke play: Front 9, Back 9, and Total 18 are three prizes of their own. Whoever has the lowest net total in each segment takes it.</p>
+        </div>
+        <div class="format">
+          <div class="num">04</div>
           <h3>Skins</h3>
           <p data-pt-block>Cada buraco vale um skin. Ganhou sozinho, é seu. Empatou, acumula pro próximo — engordando o prêmio até alguém desempatar.</p>
           <p data-en-block>Every hole is worth one skin. Win it outright and it's yours. Tie, and it carries over — stacking the pot until someone breaks it.</p>
         </div>
         <div class="format">
-          <div class="num">03</div>
+          <div class="num">05</div>
           <h3>Stableford</h3>
           <p data-pt-block>Pontos, não tacadas: eagle vale 4, birdie 3, par 2, bogey 1. Quem soma mais pontos ganha — um buraco ruim nunca acaba com a rodada.</p>
           <p data-en-block>Points, not strokes: eagle worth 4, birdie 3, par 2, bogey 1. Most points wins, and one bad hole never ends your round.</p>
