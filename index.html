@@ -67,9 +67,11 @@
     border-bottom:1px solid var(--line-soft);
   }
   #nav .wrap{ display:flex; align-items:center; justify-content:space-between; gap:16px; height:64px; }
-  .brand{ display:flex; align-items:baseline; gap:7px; font-family:var(--serif); font-size:21px; font-weight:600; white-space:nowrap; }
+  .brand{ display:flex; align-items:center; gap:9px; font-family:var(--serif); font-size:21px; font-weight:600; white-space:nowrap; }
   .brand b{ color:var(--gold); font-weight:700; }
   .brand small{ display:none; }
+  .brand-avatar{ width:30px; height:30px; border-radius:50%; object-fit:cover; border:1.5px solid var(--gold); flex-shrink:0; }
+  footer .brand-avatar{ width:24px; height:24px; }
   #nav-links{ display:flex; align-items:center; gap:26px; font-size:13px; color:var(--sage); }
   #nav-links a:hover{ color:var(--cream); }
   .nav-right{ display:flex; align-items:center; gap:14px; }
@@ -110,10 +112,17 @@
 
   /* ── scorecard artifact (hero visual) ── */
   .sc-card{
+    position:relative;
     background:var(--surface); border:1px solid var(--line); border-radius:14px;
     padding:22px 22px 20px; box-shadow:0 24px 60px -24px rgba(0,0,0,0.65);
     animation:sc-in .7s ease both;
   }
+  .sc-seal{
+    position:absolute; top:-18px; right:-12px; width:60px; height:60px; border-radius:50%;
+    object-fit:cover; border:3px solid var(--gold); background:var(--bg);
+    box-shadow:0 12px 26px -8px rgba(0,0,0,0.65); transform:rotate(-8deg);
+  }
+  @media (max-width:480px){ .sc-seal{ width:46px; height:46px; top:-12px; right:-8px; } }
   @media (prefers-reduced-motion:reduce){ .sc-card{ animation:none; } }
   @keyframes sc-in{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:none; } }
   .sc-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
@@ -220,7 +229,7 @@
 
   <nav id="nav">
     <div class="wrap">
-      <div class="brand">Caddie<b>Stakes</b></div>
+      <div class="brand"><img class="brand-avatar" src="/img/mascot-retrato.jpg" alt="">Caddie<b>Stakes</b></div>
       <div id="nav-links">
         <a href="#formats" data-pt>Formatos</a><a href="#formats" data-en>Formats</a>
         <a href="#how" data-pt>Como funciona</a><a href="#how" data-en>How it works</a>
@@ -256,6 +265,7 @@
       </div>
 
       <div class="sc-card" aria-hidden="true">
+        <img class="sc-seal" src="/img/mascot-comemorando.jpg" alt="">
         <div class="sc-top">
           <span class="name" data-pt>Mendes <span style="color:var(--sage);font-weight:400;">vs</span> Torres</span>
           <span class="name" data-en>Mendes <span style="color:var(--sage);font-weight:400;">vs</span> Torres</span>
@@ -460,7 +470,7 @@
             <span class="pill" data-en>Summary</span>
           </div>
           <div class="phone-body">
-            <div class="prow"><span class="who">Mendes</span><span class="val pos">+R$45</span></div>
+            <div class="prow"><span class="who" style="display:inline-flex;align-items:center;gap:6px;"><img src="/img/mascot-comemorando.jpg" alt="" style="width:20px;height:20px;border-radius:50%;object-fit:cover;border:1px solid var(--gold);">Mendes</span><span class="val pos">+R$45</span></div>
             <div class="prow"><span class="who">Torres</span><span class="val neg">-R$45</span></div>
             <div class="prow total"><span class="who" data-pt>Rodada · Graciosa CC</span><span class="who" data-en>Round · Graciosa CC</span><span class="val" style="color:var(--sage);font-size:11px;" data-pt>18 buracos</span><span class="val" style="color:var(--sage);font-size:11px;" data-en>18 holes</span></div>
           </div>
@@ -486,7 +496,7 @@
 
   <footer>
     <div class="wrap">
-      <div class="brand">Caddie<b>Stakes</b> <span data-pt style="font-size:11px;color:var(--sage-dim);font-family:var(--sans);letter-spacing:1px;">GOLF</span><span data-en style="font-size:11px;color:var(--sage-dim);font-family:var(--sans);letter-spacing:1px;">GOLF</span></div>
+      <div class="brand"><img class="brand-avatar" src="/img/mascot-retrato.jpg" alt="">Caddie<b>Stakes</b> <span data-pt style="font-size:11px;color:var(--sage-dim);font-family:var(--sans);letter-spacing:1px;">GOLF</span><span data-en style="font-size:11px;color:var(--sage-dim);font-family:var(--sans);letter-spacing:1px;">GOLF</span></div>
       <div data-pt-block>© <span id="y-pt"></span> Caddie Stakes Golf. Feito por golfistas, pra golfistas.</div>
       <div data-en-block>© <span id="y-en"></span> Caddie Stakes Golf. Made by golfers, for golfers.</div>
     </div>
