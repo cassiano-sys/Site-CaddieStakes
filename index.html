@@ -110,20 +110,19 @@
   #hero .ctas{ display:flex; gap:12px; flex-wrap:wrap; }
   #hero .fine{ margin-top:16px; font-size:12px; color:var(--sage-dim); }
 
-  /* ── scorecard artifact (hero visual) ── */
+  /* ── hero visual: mascote + cartão, empilhados ── */
+  .hero-visual{ display:flex; flex-direction:column; gap:16px; }
+  .hero-mascot-panel{
+    border-radius:14px; overflow:hidden; border:1px solid var(--line);
+    box-shadow:0 20px 46px -18px rgba(0,0,0,0.65); animation:sc-in .7s ease both;
+  }
+  .hero-mascot-panel img{ width:100%; height:clamp(160px,17vw,210px); object-fit:cover; object-position:32% 12%; display:block; }
   .sc-card{
-    position:relative;
     background:var(--surface); border:1px solid var(--line); border-radius:14px;
     padding:22px 22px 20px; box-shadow:0 24px 60px -24px rgba(0,0,0,0.65);
-    animation:sc-in .7s ease both;
+    animation:sc-in .7s ease .1s both;
   }
-  .sc-seal{
-    position:absolute; top:-18px; right:-12px; width:60px; height:60px; border-radius:50%;
-    object-fit:cover; border:3px solid var(--gold); background:var(--bg);
-    box-shadow:0 12px 26px -8px rgba(0,0,0,0.65); transform:rotate(-8deg);
-  }
-  @media (max-width:480px){ .sc-seal{ width:46px; height:46px; top:-12px; right:-8px; } }
-  @media (prefers-reduced-motion:reduce){ .sc-card{ animation:none; } }
+  @media (prefers-reduced-motion:reduce){ .sc-card,.hero-mascot-panel{ animation:none; } }
   @keyframes sc-in{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:none; } }
   .sc-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
   .sc-top .name{ font-family:var(--serif); font-size:16px; font-weight:600; }
@@ -264,8 +263,11 @@
         <p class="fine" data-en-block>No app store. Installs straight from the browser in 10 seconds.</p>
       </div>
 
+      <div class="hero-visual">
+      <div class="hero-mascot-panel" aria-hidden="true">
+        <img src="/img/mascot-perfil.jpg" alt="">
+      </div>
       <div class="sc-card" aria-hidden="true">
-        <img class="sc-seal" src="/img/mascot-comemorando.jpg" alt="">
         <div class="sc-top">
           <span class="name" data-pt>Mendes <span style="color:var(--sage);font-weight:400;">vs</span> Torres</span>
           <span class="name" data-en>Mendes <span style="color:var(--sage);font-weight:400;">vs</span> Torres</span>
@@ -285,6 +287,7 @@
           <p class="press-note" data-en-block>2 <b>presses</b> fired on holes 6 &amp; 7</p>
           <div class="amount">+R$60<span data-pt>Mendes recebe</span><span data-en>Mendes collects</span></div>
         </div>
+      </div>
       </div>
     </div>
   </header>
