@@ -198,20 +198,16 @@
   .feature h4{ font-family:var(--sans); font-weight:600; font-size:14.5px; color:var(--cream); }
   .feature p{ font-size:13px; color:var(--sage); line-height:1.5; }
 
-  /* phone mockups */
-  .phones{ display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
-  .phone{ background:var(--bg-deep); border:1px solid var(--line); border-radius:20px; overflow:hidden; box-shadow:0 30px 70px -30px rgba(0,0,0,0.7); }
-  .phone-bar{ display:flex; align-items:center; justify-content:space-between; padding:14px 16px; border-bottom:1px solid var(--line-soft); }
-  .phone-bar .t{ font-family:var(--serif); font-size:14px; font-weight:600; }
-  .phone-bar .t b{ color:var(--gold); }
-  .phone-bar .pill{ font-size:9px; letter-spacing:1px; text-transform:uppercase; color:var(--sage-dim); border:1px solid var(--line-soft); border-radius:999px; padding:3px 8px; }
-  .phone-body{ padding:16px; display:flex; flex-direction:column; gap:9px; }
-  .prow{ display:flex; justify-content:space-between; align-items:center; background:var(--surface); border-radius:8px; padding:10px 12px; font-size:13px; }
-  .prow .who{ color:var(--cream); }
-  .prow .val{ font-family:var(--serif); font-weight:700; font-variant-numeric:tabular-nums; }
-  .prow .val.pos{ color:var(--gold-br); }
-  .prow .val.neg{ color:var(--red); }
-  .prow.total{ background:transparent; border-top:1px dashed var(--line); border-radius:0; padding-top:12px; margin-top:2px; }
+  /* phone mockups — prints reais do app (substituem as telas coeificadas) */
+  .phones{ display:grid; grid-template-columns:repeat(2,1fr); gap:28px; align-items:start; }
+  .phone-shot-wrap{ display:flex; flex-direction:column; gap:14px; align-items:center; }
+  .phone{
+    width:100%; max-width:300px; background:var(--bg-deep); border:1px solid var(--line);
+    border-radius:26px; overflow:hidden; box-shadow:0 30px 70px -30px rgba(0,0,0,0.7);
+    line-height:0;
+  }
+  .phone-shot{ display:block; width:100%; height:auto; }
+  .phone-caption{ font-size:13px; color:var(--sage); text-align:center; }
 
   /* CTA footer */
   #cta{ text-align:center; }
@@ -482,29 +478,19 @@
         <h2 data-en-block>From scoring to settling, in two screens.</h2>
       </div>
       <div class="phones">
-        <div class="phone">
-          <div class="phone-bar">
-            <span class="t">Caddie<b>Stakes</b></span>
-            <span class="pill" data-pt>Placar corrido</span>
-            <span class="pill" data-en>Live score</span>
+        <div class="phone-shot-wrap">
+          <div class="phone">
+            <img class="phone-shot" src="/img/screen-lancamento.jpg" alt="Tela de lançamento de tacadas buraco a buraco no Caddie Stakes Golf, com o net de cada jogador">
           </div>
-          <div class="phone-body">
-            <div class="prow"><span class="who" data-pt>Mendes vs Torres · Front 9</span><span class="val pos">+R$40</span></div>
-            <div class="prow"><span class="who" data-pt>Press · buracos 6–9</span><span class="who" data-en>Press · holes 6–9</span><span class="val pos">+R$20</span></div>
-            <div class="prow"><span class="who" data-pt>Dupla A vs Dupla B</span><span class="who" data-en>Team A vs Team B</span><span class="val neg">-R$15</span></div>
-          </div>
+          <p class="phone-caption" data-pt-block>Lance as tacadas, buraco a buraco</p>
+          <p class="phone-caption" data-en-block>Enter scores, hole by hole</p>
         </div>
-        <div class="phone">
-          <div class="phone-bar">
-            <span class="t">Caddie<b>Stakes</b></span>
-            <span class="pill" data-pt>Resumo</span>
-            <span class="pill" data-en>Summary</span>
+        <div class="phone-shot-wrap">
+          <div class="phone">
+            <img class="phone-shot" src="/img/screen-resultado.jpg" alt="Tela de resultado final do Caddie Stakes Golf mostrando o vencedor da rodada e quanto cada jogador ganhou ou perdeu">
           </div>
-          <div class="phone-body">
-            <div class="prow"><span class="who" style="display:inline-flex;align-items:center;gap:6px;"><img src="/img/mascot-comemorando.jpg" alt="" style="width:20px;height:20px;border-radius:50%;object-fit:cover;border:1px solid var(--gold);">Mendes</span><span class="val pos">+R$45</span></div>
-            <div class="prow"><span class="who">Torres</span><span class="val neg">-R$45</span></div>
-            <div class="prow total"><span class="who" data-pt>Rodada · Graciosa CC</span><span class="who" data-en>Round · Graciosa CC</span><span class="val" style="color:var(--sage);font-size:11px;" data-pt>18 buracos</span><span class="val" style="color:var(--sage);font-size:11px;" data-en>18 holes</span></div>
-          </div>
+          <p class="phone-caption" data-pt-block>Feche a conta assim que o último buraco termina</p>
+          <p class="phone-caption" data-en-block>Settle up the moment the last hole ends</p>
         </div>
       </div>
     </div>
