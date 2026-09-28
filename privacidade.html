@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Política de Privacidade do Caddie Stakes Golf — o que coletamos, por que, e como pedir a exclusão dos seus dados.">
+<title>Privacidade — Caddie Stakes Golf</title>
+<link rel="canonical" href="https://www.caddiestakesgolf.com/privacidade.html">
+<meta name="theme-color" content="#0d1a0f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:        #0d1a0f;
+    --bg-deep:   #071009;
+    --surface:   #12261a;
+    --gold:      #c9a84c;
+    --gold-br:   #e3c169;
+    --cream:     #ede4cb;
+    --sage:      #9db09d;
+    --sage-dim:  #5c7460;
+    --line:      rgba(201,168,76,0.24);
+    --line-soft: rgba(237,228,203,0.09);
+    --serif:     'Cormorant Garamond', Georgia, serif;
+    --sans:      'Inter', -apple-system, system-ui, sans-serif;
+  }
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0; background:var(--bg); color:var(--cream);
+    font-family:var(--sans); line-height:1.7; -webkit-font-smoothing:antialiased;
+  }
+  a{ color:var(--gold-br); }
+  h1,h2{ font-family:var(--serif); font-weight:600; color:var(--cream); text-wrap:balance; }
+  [data-pt],[data-en],[data-pt-block],[data-en-block]{ display:none; }
+  .lang-pt [data-pt]{ display:inline; }
+  .lang-pt [data-pt-block]{ display:block; }
+  .lang-en [data-en]{ display:inline; }
+  .lang-en [data-en-block]{ display:block; }
+
+  nav{ position:sticky; top:0; z-index:20; background:rgba(13,26,15,0.9); backdrop-filter:blur(8px); border-bottom:1px solid var(--line-soft); }
+  nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:64px; max-width:900px; margin:0 auto; padding-inline:20px; }
+  .brand{ display:flex; align-items:center; gap:8px; font-family:var(--serif); font-size:19px; font-weight:600; }
+  .brand img{ width:28px; height:28px; border-radius:50%; object-fit:cover; border:1px solid var(--line); }
+  .brand b{ color:var(--gold-br); font-weight:700; }
+  .lang-switch{ display:flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; font-size:11px; font-weight:600; letter-spacing:0.5px; }
+  .lang-switch button{ padding:6px 12px; background:transparent; border:none; color:var(--sage); cursor:pointer; font-family:var(--sans); }
+  .lang-switch button.active{ background:var(--gold); color:var(--bg-deep); }
+
+  main{ max-width:700px; margin:0 auto; padding:56px 20px 80px; }
+  .eyebrow{ font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--sage-dim); margin-bottom:10px; }
+  h1{ font-size:clamp(30px,5vw,42px); margin-bottom:6px; }
+  .updated{ font-size:13px; color:var(--sage); margin-bottom:36px; }
+  section{ margin-bottom:32px; }
+  h2{ font-size:20px; margin-bottom:10px; }
+  p, li{ font-size:15px; color:var(--cream); }
+  p{ margin-bottom:12px; }
+  ul{ padding-left:20px; margin-bottom:12px; }
+  li{ margin-bottom:6px; }
+  .callout{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px 18px; font-size:14px; color:var(--sage); }
+  .callout strong{ color:var(--cream); }
+  footer{ border-top:1px solid var(--line-soft); padding:24px 20px; text-align:center; font-size:12px; color:var(--sage-dim); }
+  footer a{ color:var(--sage); }
+</style>
+</head>
+<body class="lang-pt" id="page">
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/img/mascot-retrato.jpg" alt="">Caddie<b>Stakes</b></a>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" id="btn-pt" class="active" onclick="setLang('pt')">PT</button>
+      <button type="button" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="eyebrow" data-pt>Legal</div>
+  <div class="eyebrow" data-en>Legal</div>
+  <h1 data-pt>Política de Privacidade</h1>
+  <h1 data-en>Privacy Policy</h1>
+  <p class="updated" data-pt>Última atualização: setembro de 2026</p>
+  <p class="updated" data-en>Last updated: September 2026</p>
+
+  <section>
+    <p data-pt>Esta política explica, de forma simples, quais dados o Caddie Stakes Golf coleta, para que servem e como você pode pedir a exclusão deles.</p>
+    <p data-en>This policy explains, in plain terms, what data Caddie Stakes Golf collects, what it's used for, and how you can ask for it to be deleted.</p>
+  </section>
+
+  <section>
+    <h2 data-pt>O que coletamos</h2>
+    <h2 data-en>What we collect</h2>
+    <ul>
+      <li data-pt>Nome e email, usados para criar e identificar sua conta.</li>
+      <li data-en>Name and email, used to create and identify your account.</li>
+    </ul>
+    <ul>
+      <li data-pt>Dados das suas rodadas de golfe: campo, formato de jogo, handicaps informados, scores buraco a buraco e os valores calculados entre os jogadores.</li>
+      <li data-en>Your round data: course, game format, handicaps entered, hole-by-hole scores, and the amounts calculated between players.</li>
+    </ul>
+    <ul>
+      <li data-pt>Fotos de cartões de pontuação, quando você usa a leitura automática por foto — a imagem é enviada para um serviço de inteligência artificial (visão computacional) só para extrair os números, e não é usada para nenhum outro fim.</li>
+      <li data-en>Scorecard photos, when you use the automatic photo reader — the image is sent to a computer-vision AI service only to extract the numbers, and isn't used for anything else.</li>
+    </ul>
+    <ul>
+      <li data-pt>Uma amostra de caligrafia (opcional, cadastrada no Perfil) para ajudar a IA a calibrar a leitura dos números escritos à mão pelo seu grupo.</li>
+      <li data-en>A handwriting sample (optional, saved in your Profile) to help the AI calibrate its reading of your group's handwritten numbers.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 data-pt>Para que usamos</h2>
+    <h2 data-en>What we use it for</h2>
+    <p data-pt>Só para operar o app: calcular apostas, manter seu histórico de rodadas, ranking entre jogadores e a leitura automática de cartões. Não vendemos nem compartilhamos seus dados com terceiros para fins de publicidade.</p>
+    <p data-en>Only to run the app: calculating bets, keeping your round history, player rankings, and automatic scorecard reading. We don't sell or share your data with third parties for advertising.</p>
+  </section>
+
+  <section>
+    <h2 data-pt>Onde os dados ficam guardados</h2>
+    <h2 data-en>Where your data is stored</h2>
+    <p data-pt>Seus dados ficam num banco de dados (Supabase) com controle de acesso — cada usuário só enxerga suas próprias rodadas e as informações que os outros jogadores do grupo compartilham com ele dentro do app. As fotos enviadas para leitura por IA passam por um provedor de inteligência artificial só no momento do processamento.</p>
+    <p data-en>Your data is stored in a database (Supabase) with access control — each user only sees their own rounds and the information other players in their group share with them inside the app. Photos sent for AI reading pass through an AI provider only at the moment of processing.</p>
+  </section>
+
+  <section>
+    <div class="callout">
+      <strong data-pt>Sobre dinheiro:</strong> <span data-pt>o Caddie Stakes Golf calcula valores de apostas entre os jogadores, mas não processa pagamentos, não guarda dados bancários ou de cartão, e não transfere dinheiro real entre ninguém. Os acertos financeiros são combinados diretamente entre os jogadores, fora do app.</span>
+      <strong data-en>About money:</strong> <span data-en>Caddie Stakes Golf calculates bet amounts between players, but does not process payments, does not store bank or card details, and never transfers real money between anyone. Financial settlements happen directly between players, outside the app.</span>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-pt>Seus direitos</h2>
+    <h2 data-en>Your rights</h2>
+    <p data-pt>Você pode pedir a exclusão da sua conta e de todos os seus dados a qualquer momento, falando com o suporte do Caddie Stakes Golf pelo botão 🐞 dentro do app ou pelo contato abaixo.</p>
+    <p data-en>You can ask for your account and all your data to be deleted at any time, by contacting Caddie Stakes Golf support through the 🐞 button inside the app or the contact below.</p>
+  </section>
+
+  <section>
+    <h2 data-pt>Contato</h2>
+    <h2 data-en>Contact</h2>
+    <p data-pt>Dúvidas sobre privacidade: <a href="mailto:suporte@caddiestakesgolf.com">suporte@caddiestakesgolf.com</a></p>
+    <p data-en>Privacy questions: <a href="mailto:suporte@caddiestakesgolf.com">suporte@caddiestakesgolf.com</a></p>
+  </section>
+</main>
+
+<footer>
+  <p data-pt>Este documento é uma referência simples e não substitui aconselhamento jurídico. · <a href="/termos.html">Termos de Uso</a> · <a href="/">Voltar ao início</a></p>
+  <p data-en>This document is a plain-language reference and isn't legal advice. · <a href="/termos.html">Terms of Use</a> · <a href="/">Back home</a></p>
+</footer>
+
+<script>
+  (function(){
+    var page = document.getElementById('page');
+    var saved = null;
+    try { saved = localStorage.getItem('csg_lang'); } catch(e) {}
+    var initial = saved || (navigator.language && navigator.language.toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en');
+    window.setLang = function(lang){
+      page.classList.remove('lang-pt','lang-en');
+      page.classList.add('lang-' + lang);
+      document.documentElement.lang = lang;
+      document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      try { localStorage.setItem('csg_lang', lang); } catch(e) {}
+    };
+    setLang(initial);
+  })();
+</script>
+
+</body>
+</html>
