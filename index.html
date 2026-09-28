@@ -5,6 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Caddie Stakes Golf — golf betting scorecard app for Nassau, Skins and Stableford, with AI photo scoring.">
 <title>Caddie Stakes Golf</title>
+<link rel="canonical" href="https://www.caddiestakesgolf.com/">
+<meta name="theme-color" content="#0d1a0f">
+<!-- Meta tags de compartilhamento (WhatsApp, iMessage, redes sociais) - sem
+     isso, o link mandado no grupo aparecia sem imagem nem descrição de marca,
+     só a URL crua. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Caddie Stakes Golf">
+<meta property="og:title" content="Caddie Stakes Golf">
+<meta property="og:description" content="Sem GPS, sem feed social, sem estatística sobrando. Só a aposta, bem calculada. Nassau, press automático, handicap por buraco e leitura de cartão por foto.">
+<meta property="og:url" content="https://www.caddiestakesgolf.com/">
+<meta property="og:image" content="https://www.caddiestakesgolf.com/img/mascot-perfil.jpg">
+<meta property="og:image:width" content="640">
+<meta property="og:image:height" content="640">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Caddie Stakes Golf">
+<meta name="twitter:description" content="Sem GPS, sem feed social, sem estatística sobrando. Só a aposta, bem calculada.">
+<meta name="twitter:image" content="https://www.caddiestakesgolf.com/img/mascot-perfil.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -138,8 +155,15 @@
   .sc-foot{ display:flex; justify-content:space-between; align-items:flex-end; margin-top:16px; padding-top:14px; border-top:1px dashed var(--line); }
   .sc-foot .press-note{ font-size:11px; color:var(--sage); }
   .sc-foot .press-note b{ color:var(--gold-br); }
-  .sc-foot .amount{ font-family:var(--serif); font-size:30px; font-weight:700; color:var(--gold-br); }
-  .sc-foot .amount span{ font-size:13px; color:var(--sage); font-family:var(--sans); font-weight:500; display:block; text-align:right; }
+  /* Antes disso, o rótulo ("Mendes recebe") ficava um <span> irmão dentro de
+     .amount com display:block para forçar a quebra de linha - mas a regra
+     de troca de idioma (#page.lang-pt [data-pt]{display:inline}) tem mais
+     especificidade e sobrescrevia esse display:block, colando "+R$60" e o
+     rótulo na mesma linha sem espaço. Resolvido: o layout em coluna agora
+     vem do wrapper .amount (flex), não do span que o toggle de idioma mexe. */
+  .sc-foot .amount{ display:flex; flex-direction:column; align-items:flex-end; gap:2px; }
+  .sc-foot .amount .amt-num{ font-family:var(--serif); font-size:30px; font-weight:700; color:var(--gold-br); line-height:1.1; }
+  .sc-foot .amount .amt-label{ font-size:13px; color:var(--sage); font-family:var(--sans); font-weight:500; }
 
   /* ── sections ── */
   section{ padding-block:clamp(52px,7vw,88px); }
@@ -196,8 +220,12 @@
   #cta .ctas{ margin-top:28px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 
   footer{ border-top:1px solid var(--line-soft); padding-block:28px; }
-  footer .wrap{ display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; font-size:12px; color:var(--sage-dim); }
+  footer .wrap{ display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center; font-size:12px; color:var(--sage-dim); }
   footer .brand{ font-size:15px; }
+  footer .footer-links{ font-size:12px; }
+  footer .footer-links a{ color:var(--sage); }
+  footer .footer-links a:hover{ color:var(--cream); }
+  footer .footer-fine{ font-size:11px; color:var(--sage-dim); max-width:480px; }
 
   @media (max-width:860px){
     #hero .grid{ grid-template-columns:1fr; }
@@ -285,7 +313,7 @@
         <div class="sc-foot">
           <p class="press-note" data-pt-block>2 <b>presses</b> disparados nos buracos 6 e 7</p>
           <p class="press-note" data-en-block>2 <b>presses</b> fired on holes 6 &amp; 7</p>
-          <div class="amount">+R$60<span data-pt>Mendes recebe</span><span data-en>Mendes collects</span></div>
+          <div class="amount"><span class="amt-num">+R$60</span><span class="amt-label"><span data-pt>Mendes recebe</span><span data-en>Mendes collects</span></span></div>
         </div>
       </div>
       </div>
@@ -488,8 +516,12 @@
       <div class="eyebrow" data-en-block>Ready?</div>
       <h2 data-pt-block>Sua próxima rodada já tem<br>uma aposta te esperando.</h2>
       <h2 data-en-block>Your next round already has<br>a bet waiting on it.</h2>
-      <p data-pt-block>Grátis pra começar. Sem cartão, sem loja de app.</p>
-      <p data-en-block>Free to start. No card, no app store.</p>
+      <!-- "Grátis pra começar" dava a entender que uma cobrança viria depois,
+           sem explicar o quê/quando/quanto - o que gera dúvida bem na hora
+           da conversão. Até existir um modelo de cobrança definido, o texto
+           honesto é "gratuito", sem prometer nem insinuar um limite. -->
+      <p data-pt-block>Use gratuitamente. Sem cartão, sem loja de app.</p>
+      <p data-en-block>Free to use. No card, no app store.</p>
       <div class="ctas">
         <a class="btn btn-gold" href="https://app.caddiestakesgolf.com" data-pt>Abrir o Caddie Stakes Golf →</a>
         <a class="btn btn-gold" href="https://app.caddiestakesgolf.com" data-en>Open Caddie Stakes Golf →</a>
@@ -500,6 +532,14 @@
   <footer>
     <div class="wrap">
       <div class="brand"><img class="brand-avatar" src="/img/mascot-retrato.jpg" alt="">Caddie<b>Stakes</b> <span data-pt style="font-size:11px;color:var(--sage-dim);font-family:var(--sans);letter-spacing:1px;">GOLF</span><span data-en style="font-size:11px;color:var(--sage-dim);font-family:var(--sans);letter-spacing:1px;">GOLF</span></div>
+      <div class="footer-links" data-pt-block>
+        <a href="/privacidade.html">Privacidade</a> · <a href="/termos.html">Termos de Uso</a> · <a href="mailto:suporte@caddiestakesgolf.com">Contato</a>
+      </div>
+      <div class="footer-links" data-en-block>
+        <a href="/privacidade.html">Privacy</a> · <a href="/termos.html">Terms of Use</a> · <a href="mailto:suporte@caddiestakesgolf.com">Contact</a>
+      </div>
+      <p class="footer-fine" data-pt-block>O app calcula apostas entre jogadores, mas não processa pagamentos nem transfere dinheiro real.</p>
+      <p class="footer-fine" data-en-block>The app calculates bets between players, but doesn't process payments or transfer real money.</p>
       <div data-pt-block>© <span id="y-pt"></span> Caddie Stakes Golf. Feito por golfistas, pra golfistas.</div>
       <div data-en-block>© <span id="y-en"></span> Caddie Stakes Golf. Made by golfers, for golfers.</div>
     </div>
