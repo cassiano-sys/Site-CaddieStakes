@@ -209,6 +209,15 @@
   .phone-shot{ display:block; width:100%; height:auto; }
   .phone-caption{ font-size:13px; color:var(--sage); text-align:center; }
 
+  /* demo video — mesmo tratamento visual dos mockups de phone (cantos
+     arredondados, borda e sombra), só que no formato widescreen do vídeo */
+  .demo-video-wrap{
+    max-width:880px; margin:0 auto; background:var(--bg-deep); border:1px solid var(--line);
+    border-radius:20px; overflow:hidden; box-shadow:0 30px 70px -30px rgba(0,0,0,0.7);
+    line-height:0;
+  }
+  .demo-video{ display:block; width:100%; height:auto; }
+
   /* CTA footer */
   #cta{ text-align:center; }
   #cta h2{ font-size:clamp(30px,4vw,44px); }
@@ -492,6 +501,24 @@
           <p class="phone-caption" data-pt-block>Feche a conta assim que o último buraco termina</p>
           <p class="phone-caption" data-en-block>Settle up the moment the last hole ends</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" data-pt-block>Veja em ação</div>
+        <div class="eyebrow" data-en-block>See it in action</div>
+        <h2 data-pt-block>Do primeiro drive ao acerto de contas, em 20 segundos.</h2>
+        <h2 data-en-block>From the first drive to settling up, in 20 seconds.</h2>
+      </div>
+      <div class="demo-video-wrap">
+        <video class="demo-video" autoplay muted loop playsinline preload="metadata" poster="/img/demo-poster.jpg">
+          <source src="/demo.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
   </section>
