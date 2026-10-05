@@ -135,6 +135,9 @@
     text-align:center; width:70px;
   }
 
+  .points-table.ranks th:not(:first-child),.points-table.ranks td.pts{ width:auto; padding:10px 6px; text-align:center; }
+  .points-table.ranks td:first-child{ padding-left:0; }
+
   .hole-strip{
     display:flex; gap:4px; flex-wrap:wrap; max-width:62ch;
   }
@@ -163,7 +166,7 @@
 <div class="masthead">
   <div class="flag">⛳</div>
   <h1>Como funcionam <em>as apostas</em></h1>
-  <p>Um guia rápido dos seis formatos do Caddie Stakes Golf — Nassau, Match Play, Catraca, Medal, Skins e Stableford — do jeito que o app realmente calcula cada um.</p>
+  <p>Um guia rápido dos sete formatos do Caddie Stakes Golf — Nassau, Match Play, Catraca, Medal, Skins, Stableford e Sindicato — do jeito que o app realmente calcula cada um.</p>
   <p style="margin-top:16px;"><a href="/" style="color:var(--gold); font-size:14px; text-decoration:underline; text-underline-offset:3px;">← Voltar para caddiestakesgolf.com</a></p>
 </div>
 
@@ -179,6 +182,7 @@
       <li><a href="#medal">Medal</a></li>
       <li><a href="#skins">Skins</a></li>
       <li><a href="#stableford">Stableford</a></li>
+      <li><a href="#sindicato">Sindicato (Six / Twelves)</a></li>
     </ol>
   </div>
 
@@ -186,7 +190,7 @@
     <div class="step-intro">
       <div class="step-eyebrow">Antes de tudo</div>
       <h3>Como o handicap entra na conta</h3>
-      <p class="lede">Os três formatos comparam o placar <strong>líquido</strong> (net), não o bruto — é isso que deixa jogadores de nível diferente competindo de igual pra igual.</p>
+      <p class="lede">Todos os formatos comparam o placar <strong>líquido</strong> (net), não o bruto — é isso que deixa jogadores de nível diferente competindo de igual pra igual.</p>
       <ul class="actions">
         <li><span>Cada buraco do campo tem um <strong>índice de handicap</strong> (de 1 a 18), do mais difícil ao mais fácil</span></li>
         <li><span>Quem tem handicap mais alto recebe tacadas extras primeiro nos buracos mais difíceis</span></li>
@@ -287,7 +291,7 @@
     </div>
   </section>
 
-  <section class="step" id="stableford" style="border-bottom:none;">
+  <section class="step" id="stableford">
     <div class="step-intro">
       <div class="step-eyebrow">Formato 6</div>
       <div class="step-num">06</div>
@@ -307,6 +311,39 @@
       <li><span>Dinheiro reflete a diferença de pontos entre o líder e o vice, multiplicada pelo <strong>valor por ponto</strong> (padrão: R$20) — quem não liderou divide esse valor entre si</span></li>
     </ul>
     <div class="tip"><strong>Dica:</strong> é o formato mais tranquilo pra quem está tendo um dia ruim em alguns buracos — um "10" isolado vale exatamente a mesma coisa (0 pontos) que um "7", então nunca elimina a rodada.</div>
+  </section>
+
+  <section class="step" id="sindicato" style="border-bottom:none;">
+    <div class="step-intro">
+      <div class="step-eyebrow">Formato 7 · Novo</div>
+      <div class="step-num">07</div>
+      <h3>Sindicato (Six / Twelves)</h3>
+      <p class="lede">Cada um por si, sem duplas: todo buraco distribui um número fixo de pontos pela ordem do score líquido. No fim, quem somou mais pontos leva a maior fatia de um <strong>pote</strong> que todos montaram antes da rodada. Só existe com <strong>3 ou 4 jogadores</strong> — o app escolhe sozinho a versão certa.</p>
+    </div>
+    <table class="points-table ranks">
+      <tr><th>Pontos por buraco</th><th>1º</th><th>2º</th><th>3º</th><th>4º</th></tr>
+      <tr><td><strong>Six</strong> — 3 jogadores (6 pts por buraco)</td><td class="pts">4</td><td class="pts">2</td><td class="pts">0</td><td class="pts">–</td></tr>
+      <tr><td><strong>Twelves</strong> — 4 jogadores (12 pts por buraco)</td><td class="pts">6</td><td class="pts">4</td><td class="pts">2</td><td class="pts">0</td></tr>
+    </table>
+    <ul class="actions">
+      <li><span>Em cada buraco, quem fez o menor net fica com os pontos do 1º lugar, o seguinte com os do 2º, e assim por diante</span></li>
+      <li><span><strong>Empate no buraco:</strong> somam-se os pontos das posições empatadas e divide-se igual — ninguém perde nem ganha ponto à toa</span></li>
+      <li><span>O buraco só é pontuado quando <strong>todos</strong> os jogadores têm score lançado nele</span></li>
+      <li><span>Somam-se os pontos dos 18 buracos; a classificação final define quanto do pote cada um leva</span></li>
+    </ul>
+    <div class="example">
+      <div class="ex-label">Empates no buraco, na prática</div>
+      <p><strong>Six:</strong> dois jogadores empatam com o menor net → dividem 4 + 2 = <strong>3 pontos cada</strong>; o terceiro fica com 0. Os três empatados → <strong>2 pontos cada</strong>.</p>
+      <p><strong>Twelves:</strong> um jogador sozinho em 1º (6 pts) e dois empatados logo atrás → dividem 4 + 2 = <strong>3 pontos cada</strong>; o último fica com 0.</p>
+    </div>
+    <div class="example">
+      <div class="ex-label">O pote — exemplo com R$120</div>
+      <p>Antes de começar, o grupo define o <strong>valor do pote</strong> e a <strong>divisão por colocação</strong> (em %). Cada jogador entra com a mesma parte do pote, e o saldo final de cada um é o que ele leva do pote menos o que pôs.</p>
+      <p><strong>Six (3 jogadores, padrão 70 / 30 / 0):</strong> cada um põe R$40. O 1º leva R$84 (<strong>+R$44</strong>), o 2º leva R$36 (<strong>−R$4</strong>) e o 3º não leva nada (<strong>−R$40</strong>).</p>
+      <p><strong>Twelves (4 jogadores, padrão 60 / 30 / 10 / 0):</strong> cada um põe R$30. O 1º leva R$72 (<strong>+R$42</strong>), o 2º R$36 (<strong>+R$6</strong>), o 3º R$12 (<strong>−R$18</strong>) e o 4º nada (<strong>−R$30</strong>).</p>
+      <p>Empate na classificação final segue a mesma lógica do buraco: dois empatados em 1º num Six dividem 70% + 30% = <strong>50% do pote cada</strong>.</p>
+    </div>
+    <div class="tip"><strong>Dica:</strong> as porcentagens são editáveis a cada rodada — o app só deixa iniciar quando a soma fecha 100%. Como o pote sempre volta inteiro pra mesa, a soma dos saldos é sempre zero. E como os pontos premiam cada buraco, um buraco ruim custa só aquele buraco — mas quem joga regular os 18 é quem fica com a maior fatia.</div>
   </section>
 
 </div>
