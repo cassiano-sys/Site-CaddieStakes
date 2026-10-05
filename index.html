@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Caddie Stakes Golf — golf betting scorecard app for Nassau, Skins and Stableford, with AI photo scoring.">
+<meta name="description" content="Caddie Stakes Golf — golf betting scorecard app for Nassau, Match Play, Catraca, Medal, Skins, Stableford and Six/Twelves (Sindicato), with AI photo scoring.">
 <title>Caddie Stakes Golf</title>
 <link rel="canonical" href="https://www.caddiestakesgolf.com/">
 <meta name="theme-color" content="#0d1a0f">
@@ -178,6 +178,8 @@
   .format .num{ font-family:var(--serif); font-size:13px; color:var(--sage-dim); letter-spacing:2px; }
   .format h3{ font-size:19px; margin-top:10px; margin-bottom:10px; color:var(--gold-br); letter-spacing:0.5px; }
   .format p{ font-size:13.5px; color:var(--sage); }
+  .format.wide{ grid-column:1 / -1; }
+  .format .badge{ display:inline-block; margin-left:8px; padding:2px 8px; border-radius:999px; font-family:var(--sans); font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; vertical-align:middle; background:var(--gold); color:var(--bg); }
   .formats-foot{ margin-top:20px; font-size:13px; color:var(--sage-dim); border-left:2px solid var(--gold); padding-left:14px; }
 
   /* how it works */
@@ -332,8 +334,8 @@
       <div class="section-head">
         <div class="eyebrow" data-pt-block>A aposta</div>
         <div class="eyebrow" data-en-block>The wager</div>
-        <h2 data-pt-block>Seis formatos. As regras do seu grupo.</h2>
-        <h2 data-en-block>Six formats. Your group's own rules.</h2>
+        <h2 data-pt-block>Sete formatos. As regras do seu grupo.</h2>
+        <h2 data-en-block>Seven formats. Your group's own rules.</h2>
         <p data-pt-block>Cada modo calcula na hora, respeitando o handicap de cada jogador buraco a buraco — do jeito que seu clube já joga.</p>
         <p data-en-block>Every mode settles in real time, weighting each player's handicap hole-by-hole by stroke index — the way your club already plays.</p>
       </div>
@@ -374,6 +376,12 @@
           <h3>Stableford</h3>
           <p data-pt-block>Pontos, não tacadas: eagle vale 4, birdie 3, par 2, bogey 1. Quem soma mais pontos ganha — um buraco ruim nunca acaba com a rodada.</p>
           <p data-en-block>Points, not strokes: eagle worth 4, birdie 3, par 2, bogey 1. Most points wins, and one bad hole never ends your round.</p>
+        </div>
+        <div class="format wide">
+          <div class="num">07</div>
+          <h3>Sindicato <span class="badge" data-pt>Novo</span><span class="badge" data-en>New</span></h3>
+          <p data-pt-block>Cada um por si, com 3 ou 4 jogadores: todo buraco distribui pontos pela ordem do net — 4-2-0 no Six, 6-4-2-0 no Twelves. Quem somar mais leva a maior fatia do pote, na divisão que o grupo combinar.</p>
+          <p data-en-block>Every player for themselves, 3 or 4 in the group: each hole hands out points by net order — 4-2-0 in Six, 6-4-2-0 in Twelves. Most points takes the biggest slice of the pot, split however your group agrees.</p>
         </div>
       </div>
       <p class="formats-foot" data-pt-block>Jogando em dupla? Escolha quem entra em cada confronto individual — inclusive quem prefere ficar de fora dele.</p>
