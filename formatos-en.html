@@ -135,6 +135,9 @@
     text-align:center; width:70px;
   }
 
+  .points-table.ranks th:not(:first-child),.points-table.ranks td.pts{ width:auto; padding:10px 6px; text-align:center; }
+  .points-table.ranks td:first-child{ padding-left:0; }
+
   .hole-strip{
     display:flex; gap:4px; flex-wrap:wrap; max-width:62ch;
   }
@@ -163,7 +166,7 @@
 <div class="masthead">
   <div class="flag">⛳</div>
   <h1>How the <em>betting formats</em> work</h1>
-  <p>A quick guide to Caddie Stakes Golf's five formats — Nassau, Match Play, Medal, Skins and Stableford — exactly the way the app actually calculates each one.</p>
+  <p>A quick guide to Caddie Stakes Golf's seven formats — Nassau, Match Play, Catraca, Medal, Skins, Stableford and Sindicato — exactly the way the app actually calculates each one.</p>
   <p style="margin-top:16px;"><a href="/" style="color:var(--gold); font-size:14px; text-decoration:underline; text-underline-offset:3px;">← Back to caddiestakesgolf.com</a></p>
 </div>
 
@@ -175,9 +178,11 @@
       <li><a href="#handicap">How handicap factors in</a></li>
       <li><a href="#nassau">Nassau</a></li>
       <li><a href="#matchplay">Match Play</a></li>
+      <li><a href="#catraca">Catraca</a></li>
       <li><a href="#medal">Medal</a></li>
       <li><a href="#skins">Skins</a></li>
       <li><a href="#stableford">Stableford</a></li>
+      <li><a href="#sindicato">Sindicato (Six / Twelves)</a></li>
     </ol>
   </div>
 
@@ -185,7 +190,7 @@
     <div class="step-intro">
       <div class="step-eyebrow">Before anything else</div>
       <h3>How handicap factors in</h3>
-      <p class="lede">All three formats compare <strong>net</strong> scores, not gross — that's what lets players of different skill levels compete on even footing.</p>
+      <p class="lede">Every format compares <strong>net</strong> scores, not gross — that's what lets players of different skill levels compete on even footing.</p>
       <ul class="actions">
         <li><span>Every hole on the course has a <strong>handicap (stroke) index</strong> from 1 to 18, hardest to easiest</span></li>
         <li><span>The higher a player's handicap, the earlier they get extra strokes, starting on the hardest holes</span></li>
@@ -232,10 +237,28 @@
     <div class="tip"><strong>When to pick it:</strong> if the group prefers a more predictable match — without the Press's snowball effect stacking bets late in the Front or Back — Match Play is Nassau in "classic mode."</div>
   </section>
 
-  <section class="step" id="medal">
+  <section class="step" id="catraca">
     <div class="step-intro">
       <div class="step-eyebrow">Format 3</div>
       <div class="step-num">03</div>
+      <h3>Catraca</h3>
+      <p class="lede">Nassau turned all the way up: instead of waiting for a ±2-point gap (individual match) before a Press fires, here <strong>1 point</strong> is enough — the score "ratchets" (that's what <em>catraca</em> means) with every hole of advantage. In team play, the Press trigger stays the same as regular Nassau (±4 points).</p>
+      <ul class="actions">
+        <li><span>In individual matches, any 1-point lead fires a new Press — they can cascade on every following hole</span></li>
+        <li><span>The opening Front 9 and Back 9 bet (before any Press) is worth <strong>double</strong> the value of each Press — Total 18 has no Press and is worth exactly the amount entered, not doubled</span></li>
+      </ul>
+    </div>
+    <div class="example">
+      <div class="ex-label">Example with Front 9 = R$5 / Back 9 = R$5 / Total 18 = R$10</div>
+      <p>Each Press is worth <strong>R$5</strong> (the amount entered). But the nine itself — Front 9 and Back 9 — starts out worth <strong>R$10</strong> each, double the Press, even before the first Press fires. Total 18 stays at R$10, exactly as entered, with no Press and no doubling.</p>
+    </div>
+    <div class="tip"><strong>When to pick it:</strong> for groups who find regular Nassau too slow to swing — in Catraca, a run of 2 or 3 bad holes already costs several stacked Presses, so the lead changes hands fast.</div>
+  </section>
+
+  <section class="step" id="medal">
+    <div class="step-intro">
+      <div class="step-eyebrow">Format 4</div>
+      <div class="step-num">04</div>
       <h3>Medal</h3>
       <p class="lede">Pure stroke play: <strong>Front 9</strong>, <strong>Back 9</strong> and <strong>Total 18</strong> are three independent prizes (same values as Nassau) — whoever has the lowest net-stroke total in that segment takes it.</p>
       <ul class="actions">
@@ -249,8 +272,8 @@
 
   <section class="step" id="skins">
     <div class="step-intro">
-      <div class="step-eyebrow">Format 4</div>
-      <div class="step-num">04</div>
+      <div class="step-eyebrow">Format 5</div>
+      <div class="step-num">05</div>
       <h3>Skins</h3>
       <p class="lede">Every hole is worth <strong>1 skin</strong>. Whoever has the sole lowest net score on that hole takes it.</p>
       <ul class="actions">
@@ -268,10 +291,10 @@
     </div>
   </section>
 
-  <section class="step" id="stableford" style="border-bottom:none;">
+  <section class="step" id="stableford">
     <div class="step-intro">
-      <div class="step-eyebrow">Format 5</div>
-      <div class="step-num">05</div>
+      <div class="step-eyebrow">Format 6</div>
+      <div class="step-num">06</div>
       <h3>Stableford</h3>
       <p class="lede">Points, not strokes — one bad hole only costs you that hole's point, it doesn't wreck the rest of the round.</p>
     </div>
@@ -288,6 +311,39 @@
       <li><span>Money reflects the point difference between the leader and the runner-up, multiplied by the <strong>value per point</strong> (default: R$20) — whoever didn't lead splits that amount among themselves</span></li>
     </ul>
     <div class="tip"><strong>Good to know:</strong> it's the most forgiving format on an off day — a stray "10" is worth exactly the same (0 points) as a "7", so it never sinks the round.</div>
+  </section>
+
+  <section class="step" id="sindicato" style="border-bottom:none;">
+    <div class="step-intro">
+      <div class="step-eyebrow">Format 7 · New</div>
+      <div class="step-num">07</div>
+      <h3>Sindicato (Six / Twelves)</h3>
+      <p class="lede">Every player for themselves, no teams: each hole hands out a fixed number of points by net-score order. At the end, whoever piled up the most points takes the biggest share of a <strong>pot</strong> everyone put in before the round. Only for <strong>3 or 4 players</strong> — the app picks the right version automatically. (In the app, it shows up as <em>Sindicato</em>.)</p>
+    </div>
+    <table class="points-table ranks">
+      <tr><th>Points per hole</th><th>1st</th><th>2nd</th><th>3rd</th><th>4th</th></tr>
+      <tr><td><strong>Six</strong> — 3 players (6 pts per hole)</td><td class="pts">4</td><td class="pts">2</td><td class="pts">0</td><td class="pts">–</td></tr>
+      <tr><td><strong>Twelves</strong> — 4 players (12 pts per hole)</td><td class="pts">6</td><td class="pts">4</td><td class="pts">2</td><td class="pts">0</td></tr>
+    </table>
+    <ul class="actions">
+      <li><span>On each hole, the lowest net takes 1st-place points, the next one 2nd-place points, and so on</span></li>
+      <li><span><strong>Ties on a hole:</strong> add up the points of the tied positions and split them evenly — no points are ever lost or invented</span></li>
+      <li><span>A hole only counts once <strong>every</strong> player has a score entered for it</span></li>
+      <li><span>Add up the points from all 18 holes; the final standings decide how much of the pot each player takes</span></li>
+    </ul>
+    <div class="example">
+      <div class="ex-label">Ties on a hole, in practice</div>
+      <p><strong>Six:</strong> two players tie for the lowest net → they split 4 + 2 = <strong>3 points each</strong>; the third gets 0. All three tie → <strong>2 points each</strong>.</p>
+      <p><strong>Twelves:</strong> one player alone in 1st (6 pts) and two tied right behind → they split 4 + 2 = <strong>3 points each</strong>; the last player gets 0.</p>
+    </div>
+    <div class="example">
+      <div class="ex-label">The pot — example with R$120</div>
+      <p>Before teeing off, the group sets the <strong>pot amount</strong> and the <strong>payout split by finishing position</strong> (in %). Every player puts in an equal share, and each player's final balance is what they take from the pot minus what they put in.</p>
+      <p><strong>Six (3 players, default 70 / 30 / 0):</strong> each puts in R$40. 1st takes R$84 (<strong>+R$44</strong>), 2nd takes R$36 (<strong>−R$4</strong>) and 3rd takes nothing (<strong>−R$40</strong>).</p>
+      <p><strong>Twelves (4 players, default 60 / 30 / 10 / 0):</strong> each puts in R$30. 1st takes R$72 (<strong>+R$42</strong>), 2nd R$36 (<strong>+R$6</strong>), 3rd R$12 (<strong>−R$18</strong>) and 4th nothing (<strong>−R$30</strong>).</p>
+      <p>A tie in the final standings works the same way as a tie on a hole: two players tied for 1st in a Six split 70% + 30% = <strong>50% of the pot each</strong>.</p>
+    </div>
+    <div class="tip"><strong>Good to know:</strong> the percentages are editable every round — the app only lets you start once they add up to 100%. Since the whole pot always goes back on the table, everyone's balances always sum to zero. And because points are earned hole by hole, one bad hole only costs you that hole — but whoever plays steady across all 18 takes the biggest share.</div>
   </section>
 
 </div>
