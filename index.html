@@ -201,7 +201,7 @@
   .feature p{ font-size:13px; color:var(--sage); line-height:1.5; }
 
   /* phone mockups — prints reais do app (substituem as telas coeificadas) */
-  .phones{ display:grid; grid-template-columns:repeat(2,1fr); gap:28px; align-items:start; }
+  .phones{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; align-items:start; }
   .phone-shot-wrap{ display:flex; flex-direction:column; gap:14px; align-items:center; }
   .phone{
     width:100%; max-width:300px; background:var(--bg-deep); border:1px solid var(--line);
@@ -417,8 +417,8 @@
         <div class="step">
           <h3 data-pt-block>Feche a conta</h3>
           <h3 data-en-block>Settle up</h3>
-          <p data-pt-block>No fim da rodada, cada jogador vê exatamente quanto ganhou ou perdeu — até o último press.</p>
-          <p data-en-block>The moment the round ends, every player sees exactly what they won or lost — down to the last press.</p>
+          <p data-pt-block>No fim da rodada, cada jogador vê exatamente quanto ganhou ou perdeu — até o último press — e o acerto sai via PIX, com o QR já no valor.</p>
+          <p data-en-block>The moment the round ends, every player sees exactly what they won or lost — down to the last press — and settles up with a pre-filled PIX code.</p>
         </div>
       </div>
     </div>
@@ -480,6 +480,27 @@
           <p data-pt-block>Direto do navegador, sem loja de aplicativos. Um atalho na tela inicial, pronto pra jogar.</p>
           <p data-en-block>Straight from the browser, no app store required. One home-screen shortcut, ready to play.</p>
         </div>
+        <div class="feature">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/></svg>
+          <h4 data-pt-block>Acerto via PIX</h4>
+          <h4 data-en-block>Settle up via PIX</h4>
+          <p data-pt-block>No fim da rodada, o app mostra quem paga quem com o menor número de transferências — e gera o QR code ou o Pix Copia e Cola já no valor certo.</p>
+          <p data-en-block>When the round ends, the app shows who pays whom in the fewest transfers — and builds a PIX QR code or copy-and-paste code (Brazil's instant payments) with the exact amount.</p>
+        </div>
+        <div class="feature">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 4.5a3 3 0 0 1 0 6M18 14c2 .7 3 2.7 3 6"/></svg>
+          <h4 data-pt-block>Amigos por convite</h4>
+          <h4 data-en-block>Friends by invite</h4>
+          <p data-pt-block>Convide seu grupo por um link no WhatsApp. Cada rodada aparece só para quem jogou — seus valores de aposta não ficam à vista de ninguém de fora.</p>
+          <p data-en-block>Invite your group with a WhatsApp link. Each round shows up only for the people who played it — your stakes stay private.</p>
+        </div>
+        <div class="feature">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 4h11l3 3v13H5z"/><path d="M8 4v5h7V4M8 14h8M8 17h5"/></svg>
+          <h4 data-pt-block>Nada se perde</h4>
+          <h4 data-en-block>Nothing gets lost</h4>
+          <p data-pt-block>A rodada em andamento fica salva no celular a cada score — se o app fechar no meio do jogo, é só continuar. E qualquer rodada salva pode ser reaberta no histórico.</p>
+          <p data-en-block>The round in progress is saved on your phone with every score — if the app closes mid-round, just pick up where you left off. Any saved round can be reopened from history.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -491,8 +512,8 @@
       <div class="section-head">
         <div class="eyebrow" data-pt-block>Na tela</div>
         <div class="eyebrow" data-en-block>On screen</div>
-        <h2 data-pt-block>Do lançamento ao acerto, em duas telas.</h2>
-        <h2 data-en-block>From scoring to settling, in two screens.</h2>
+        <h2 data-pt-block>Do lançamento ao PIX, em três telas.</h2>
+        <h2 data-en-block>From scoring to settling up, in three screens.</h2>
       </div>
       <div class="phones">
         <div class="phone-shot-wrap">
@@ -508,6 +529,13 @@
           </div>
           <p class="phone-caption" data-pt-block>Feche a conta assim que o último buraco termina</p>
           <p class="phone-caption" data-en-block>Settle up the moment the last hole ends</p>
+        </div>
+        <div class="phone-shot-wrap">
+          <div class="phone">
+            <img class="phone-shot" src="/img/screen-pix.jpg" alt="Tela de acerto via PIX do Caddie Stakes Golf, mostrando quem paga quem com botões de QR code, Pix Copia e Cola e WhatsApp">
+          </div>
+          <p class="phone-caption" data-pt-block>Acerte via PIX: quem paga quem, com o QR já no valor</p>
+          <p class="phone-caption" data-en-block>Pay up via PIX (Brazil): who pays whom, QR code pre-filled</p>
         </div>
       </div>
     </div>
