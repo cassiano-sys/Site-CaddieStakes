@@ -198,16 +198,14 @@
 <script>
   (function(){
     var page = document.getElementById('page');
-    var saved = null;
-    try { saved = localStorage.getItem('csg_lang'); } catch(e) {}
-    var initial = saved || (navigator.language && navigator.language.toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en');
+    // Por enquanto o site sempre abre em português; o inglês fica no botão EN.
+    var initial = 'pt';
     window.setLang = function(lang){
       page.classList.remove('lang-pt','lang-en');
       page.classList.add('lang-' + lang);
       document.documentElement.lang = lang;
       document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-      try { localStorage.setItem('csg_lang', lang); } catch(e) {}
     };
     setLang(initial);
   })();
