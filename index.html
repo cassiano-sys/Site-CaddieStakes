@@ -199,6 +199,12 @@
   .feature .ico{ width:30px; height:30px; color:var(--gold); }
   .feature h4{ font-family:var(--sans); font-weight:600; font-size:14.5px; color:var(--cream); }
   .feature p{ font-size:13px; color:var(--sage); line-height:1.5; }
+  a.feature-link{ text-decoration:none; color:inherit; cursor:pointer; transition:background .15s; }
+  a.feature-link:hover{ background:var(--surface-2, rgba(201,168,76,0.06)); }
+  .feature-cta{ font-size:12.5px; font-weight:600; color:var(--gold); margin-top:auto; padding-top:4px; }
+  a.feature-link:hover .feature-cta{ color:var(--gold-br); }
+  #hero .fine-link, .fine-link{ color:var(--gold); text-decoration:none; font-weight:600; white-space:nowrap; }
+  #hero .fine-link:hover, .fine-link:hover{ color:var(--gold-br); text-decoration:underline; }
 
   /* phone mockups — prints reais do app (substituem as telas coeificadas) */
   .phones{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; align-items:start; }
@@ -294,8 +300,8 @@
           <a class="btn btn-ghost" href="#how" data-pt>Ver como funciona</a>
           <a class="btn btn-ghost" href="#how" data-en>See how it works</a>
         </div>
-        <p class="fine" data-pt-block>Sem loja de app. Instala direto do navegador em 10 segundos.</p>
-        <p class="fine" data-en-block>No app store. Installs straight from the browser in 10 seconds.</p>
+        <p class="fine" data-pt-block>Sem loja de aplicativos. Instala direto do navegador em 10 segundos. <a class="fine-link" href="manual.html#passo1">Veja como instalar →</a></p>
+        <p class="fine" data-en-block>No app store. Installs straight from the browser in 10 seconds. <a class="fine-link" href="manual-en.html#step1">See how to install →</a></p>
       </div>
 
       <div class="hero-visual">
@@ -473,13 +479,15 @@
           <p data-pt-block>Escolha quem joga individual dentro da dupla — ou quem prefere ficar de fora dessa aposta específica.</p>
           <p data-en-block>Choose who plays individual matches within a team — or who'd rather sit that particular bet out.</p>
         </div>
-        <div class="feature">
+        <a class="feature feature-link" href="manual.html#passo1" data-install-link>
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 18h4"/></svg>
           <h4 data-pt-block>Instala como um app nativo</h4>
           <h4 data-en-block>Installs like a native app</h4>
           <p data-pt-block>Direto do navegador, sem loja de aplicativos. Um atalho na tela inicial, pronto pra jogar.</p>
           <p data-en-block>Straight from the browser, no app store required. One home-screen shortcut, ready to play.</p>
-        </div>
+          <span class="feature-cta" data-pt-block>Ver instruções →</span>
+          <span class="feature-cta" data-en-block>See instructions →</span>
+        </a>
         <div class="feature">
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/></svg>
           <h4 data-pt-block>Acerto via PIX</h4>
@@ -606,6 +614,7 @@
       page.classList.add('lang-' + lang);
       document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.querySelectorAll('[data-install-link]').forEach(function(a){ a.href = lang === 'en' ? 'manual-en.html#step1' : 'manual.html#passo1'; });
     };
     setLang(initial);
     var y = new Date().getFullYear();
